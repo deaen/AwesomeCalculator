@@ -1,6 +1,7 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1708628938
-export_presets.cfg::TextFile::-1::1708628744::0::1::::<><>::
+::res://::1708633734
+default_bus_layout.tres::AudioBusLayout::4838820997944124103::1708630872::0::1::::<><>::
+export_presets.cfg::TextFile::-1::1708631160::0::1::::<><>::
 icon.svg::CompressedTexture2D::3743919572113817931::1708538807::1708538821::1::::<><>::
 ::res://addons/::1708628918
 ::res://addons/godot_icon/::1708628918
@@ -27,21 +28,22 @@ loop.mp3::AudioStreamMP3::666722310019150743::1708547315::1708547482::1::::<><>:
 ::res://assets/fonts/::1708606678
 Comic Sans MS Bold.ttf::FontFile::8240822474150724688::1708595843::1708606678::1::::<><>::
 Comic Sans MS.ttf::FontFile::4116179096141782796::1708595838::1708606678::1::::<><>::
-::res://Scenes/::1708627756
-main_window.tscn::PackedScene::3209166469823249191::1708627728::0::1::::<><>::res://Scripts/mainWindow.gd<>uid://jq7232ogh2id::::res://assets/audio/loop.mp3<>uid://ctkww2cb68ij2::::res://assets/audio/build up.mp3<>res://shader/main_window.gdshader<>res://shader/textfloat.gdshader<>uid://ccm30crfj0bt3::::res://theme/def theme.tres<>res://Scripts/bg thing.gd<>uid://gfwverdlvrb2::::res://assets/settingsicon.png<>res://Scripts/HSlider.gd<>uid://do6kbq5d7amxx::::res://assets/godotLogo.webp<>res://Scripts/credit.gd
-resultScreen.tscn::PackedScene::1632169298019188281::1708627756::0::1::::<><>::res://Scripts/resultScreen.gd<>uid://omxrn8usvpae::::res://theme/quickbtn.tres<>res://shader/pixelate.gdshader<>uid://bhr7kxp6y3ma3::::res://assets/audio/drop.mp3<>uid://wpguemih2xei::::res://assets/arrowBack.png
-::res://Scripts/::1708628744
-bg thing.gd::GDScript::-1::1708628744::0::1::::<>OptionButton<>::
-credit.gd::GDScript::-1::1708628744::0::1::::<>Button<>::
+::res://linuxBuild/::1708631154
+::res://Scenes/::1708631032
+main_window.tscn::PackedScene::3209166469823249191::1708631032::0::1::::<><>::res://Scripts/mainWindow.gd<>uid://jq7232ogh2id::::res://assets/audio/loop.mp3<>uid://ctkww2cb68ij2::::res://assets/audio/build up.mp3<>res://shader/main_window.gdshader<>res://shader/textfloat.gdshader<>uid://ccm30crfj0bt3::::res://theme/def theme.tres<>res://Scripts/bg thing.gd<>uid://gfwverdlvrb2::::res://assets/settingsicon.png<>res://Scripts/HSlider.gd<>uid://do6kbq5d7amxx::::res://assets/godotLogo.webp<>res://Scripts/credit.gd
+resultScreen.tscn::PackedScene::1632169298019188281::1708630872::0::1::::<><>::res://Scripts/resultScreen.gd<>uid://omxrn8usvpae::::res://theme/quickbtn.tres<>res://shader/pixelate.gdshader<>uid://bhr7kxp6y3ma3::::res://assets/audio/drop.mp3<>uid://wpguemih2xei::::res://assets/arrowBack.png
+::res://Scripts/::1708631160
+bg thing.gd::GDScript::-1::1708631160::0::1::::<>OptionButton<>::
+credit.gd::GDScript::-1::1708631160::0::1::::<>Button<>::
 globalvars.gd::GDScript::-1::1708549463::0::1::::<>Node<>::
-HSlider.gd::GDScript::-1::1708624751::0::1::::<>HSlider<>::
-mainWindow.gd::GDScript::-1::1708626896::0::1::::<>Node2D<>::
+HSlider.gd::GDScript::-1::1708630731::0::1::::<>HSlider<>::
+mainWindow.gd::GDScript::-1::1708630401::0::1::::<>Node2D<>::
 resultScreen.gd::GDScript::-1::1708627756::0::1::::<>Node2D<>::
-::res://shader/::1708628933
-main_window.gdshader::Shader::-1::1708628933::0::1::::<><>::
-pixelate.gdshader::Shader::-1::1708628933::0::1::::<><>::
-textfloat.gdshader::Shader::-1::1708628933::0::1::::<><>::
-::res://theme/::1708626737
-def theme.tres::Theme::4939736439904631518::1708626737::0::1::::<><>::
-quickbtn.tres::Theme::1008843928026885448::1708626470::0::1::::<><>::
-::res://windowsBuild/::1708627920
+::res://shader/::1708632955
+main_window.gdshader::Shader::-1::1708632955::0::1::::<><>::
+pixelate.gdshader::Shader::-1::1708632955::0::1::::<><>::
+textfloat.gdshader::Shader::-1::1708632955::0::1::::<><>::
+::res://theme/::1708632955
+def theme.tres::Theme::4939736439904631518::1708632955::0::1::::<><>::
+quickbtn.tres::Theme::1008843928026885448::1708630641::0::1::::<><>::
+::res://windowsBuild/::1708631138

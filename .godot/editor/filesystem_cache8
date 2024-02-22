@@ -1,13 +1,19 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1708627837
-icon.png::CompressedTexture2D::9127954053546443697::1708627837::1708627837::1::::<><>::
+::res://::1708628938
+export_presets.cfg::TextFile::-1::1708628744::0::1::::<><>::
 icon.svg::CompressedTexture2D::3743919572113817931::1708538807::1708538821::1::::<><>::
-README.md::TextFile::-1::1708627837::0::1::::<><>::
-::res://addons/::1708627837
-::res://addons/gdscript_formatter/::1708627837
-gdscript_formatter.gd::GDScript::-1::1708627837::0::1::::<>EditorPlugin<>::
-plugin.cfg::TextFile::-1::1708627837::0::1::::<><>::
-::res://assets/::1708627702
+::res://addons/::1708628918
+::res://addons/godot_icon/::1708628918
+CreateIcon.gd::GDScript::-1::1708628918::0::1::::CreateIcon<>SceneTree<>::
+GodotIconPlugin.gd::GDScript::-1::1708628918::0::1::::<>EditorPlugin<>::
+IconCreator.gd::GDScript::-1::1708628918::0::1::::<>ConfirmationDialog<>::
+IconCreator.tscn::PackedScene::6022893750037439598::1708628918::0::1::::<><>::res://addons/godot_icon/IconCreator.gd
+IconReplacer.gd::GDScript::-1::1708628918::0::1::::<>ConfirmationDialog<>::
+IconReplacer.tscn::PackedScene::4954727098840103535::1708628918::0::1::::<><>::res://addons/godot_icon/IconReplacer.gd
+LICENSE.md::TextFile::-1::1708628918::0::1::::<><>::
+plugin.cfg::TextFile::-1::1708628918::0::1::::<><>::
+ReplaceIcon.gd::GDScript::-1::1708628918::0::1::::ReplaceIcon<>SceneTree<>::
+::res://assets/::1708628759
 arrowBack.png::CompressedTexture2D::1575520473187285044::1708606664::1708606716::1::::<><>::
 godotLogo.webp::CompressedTexture2D::8206511415005997621::1708625989::1708625999::1::::<><>::
 icon.png::CompressedTexture2D::5096920827574585636::1708627692::1708627702::1::::<><>::
@@ -24,17 +30,18 @@ Comic Sans MS.ttf::FontFile::4116179096141782796::1708595838::1708606678::1::::<
 ::res://Scenes/::1708627756
 main_window.tscn::PackedScene::3209166469823249191::1708627728::0::1::::<><>::res://Scripts/mainWindow.gd<>uid://jq7232ogh2id::::res://assets/audio/loop.mp3<>uid://ctkww2cb68ij2::::res://assets/audio/build up.mp3<>res://shader/main_window.gdshader<>res://shader/textfloat.gdshader<>uid://ccm30crfj0bt3::::res://theme/def theme.tres<>res://Scripts/bg thing.gd<>uid://gfwverdlvrb2::::res://assets/settingsicon.png<>res://Scripts/HSlider.gd<>uid://do6kbq5d7amxx::::res://assets/godotLogo.webp<>res://Scripts/credit.gd
 resultScreen.tscn::PackedScene::1632169298019188281::1708627756::0::1::::<><>::res://Scripts/resultScreen.gd<>uid://omxrn8usvpae::::res://theme/quickbtn.tres<>res://shader/pixelate.gdshader<>uid://bhr7kxp6y3ma3::::res://assets/audio/drop.mp3<>uid://wpguemih2xei::::res://assets/arrowBack.png
-::res://Scripts/::1708627756
-bg thing.gd::GDScript::-1::1708621398::0::1::::<>OptionButton<>::
-credit.gd::GDScript::-1::1708626611::0::1::::<>Button<>::
+::res://Scripts/::1708628744
+bg thing.gd::GDScript::-1::1708628744::0::1::::<>OptionButton<>::
+credit.gd::GDScript::-1::1708628744::0::1::::<>Button<>::
 globalvars.gd::GDScript::-1::1708549463::0::1::::<>Node<>::
 HSlider.gd::GDScript::-1::1708624751::0::1::::<>HSlider<>::
 mainWindow.gd::GDScript::-1::1708626896::0::1::::<>Node2D<>::
 resultScreen.gd::GDScript::-1::1708627756::0::1::::<>Node2D<>::
-::res://shader/::1708627756
-main_window.gdshader::Shader::-1::1708627756::0::1::::<><>::
-pixelate.gdshader::Shader::-1::1708627756::0::1::::<><>::
-textfloat.gdshader::Shader::-1::1708627756::0::1::::<><>::
+::res://shader/::1708628933
+main_window.gdshader::Shader::-1::1708628933::0::1::::<><>::
+pixelate.gdshader::Shader::-1::1708628933::0::1::::<><>::
+textfloat.gdshader::Shader::-1::1708628933::0::1::::<><>::
 ::res://theme/::1708626737
 def theme.tres::Theme::4939736439904631518::1708626737::0::1::::<><>::
 quickbtn.tres::Theme::1008843928026885448::1708626470::0::1::::<><>::
+::res://windowsBuild/::1708627920

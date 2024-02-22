@@ -27,6 +27,7 @@ var shake_strength: float = 0.0
 
 func _ready():
 	global.result = 0.0
+	operatorIndex = $operator.get_selected_id()
 
 func _process(_delta):
 	get_window().position += randomWindowOffest()
@@ -71,6 +72,13 @@ func _on_calculate_pressed():
 	elif operatorIndex == 3: 
 		global.result = float(fieldOneCombined) / float(fieldTwoCombined)
 	
+	if fieldOneCombined == "09" && fieldTwoCombined == "10" && operatorIndex == 0:
+		global.result = 21
+
+	print(operatorIndex)
+	print(fieldOneCombined)
+	print(fieldTwoCombined)
+	print(global.result)
 	global.windowPOS = get_window().position
 	$loop.stop()
 	$"build up".play()

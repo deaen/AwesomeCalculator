@@ -1,10 +1,9 @@
+res://Scripts/bg thing.gd
+res://Scripts/credit.gd
+res://export_presets.cfg
 res://Scenes/main_window.tscn
-res://theme/def theme.tres
 res://shader/main_window.gdshader
 res://shader/textfloat.gdshader
-res://theme/quickbtn.tres
 res://shader/pixelate.gdshader
-res://Scenes/resultScreen.tscn
-res://Scripts/credit.gd
 res://Scripts/mainWindow.gd
-res://Scripts/resultScreen.gd
+res://Scenes/resultScreen.tscn

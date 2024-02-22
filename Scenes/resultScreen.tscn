@@ -1,0 +1,61 @@
+[gd_scene load_steps=8 format=3 uid="uid://xivub5p2rhhx"]
+
+[ext_resource type="Script" path="res://Scripts/resultScreen.gd" id="1_wmpoq"]
+[ext_resource type="Theme" uid="uid://omxrn8usvpae" path="res://theme/quickbtn.tres" id="2_5neab"]
+[ext_resource type="Shader" path="res://shader/pixelate.gdshader" id="2_58vuw"]
+[ext_resource type="AudioStream" uid="uid://bhr7kxp6y3ma3" path="res://assets/audio/drop.mp3" id="2_asfa8"]
+[ext_resource type="Texture2D" uid="uid://wpguemih2xei" path="res://assets/arrowBack.png" id="2_st422"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1ofwm"]
+resource_local_to_scene = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w0nmw"]
+shader = ExtResource("2_58vuw")
+shader_parameter/pixel_size = 2.0
+
+[node name="ResultScreen" type="Node2D" node_paths=PackedStringArray("RichLabel")]
+script = ExtResource("1_wmpoq")
+RichLabel = NodePath("CanvasLayer/RichTextLabel")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
+modulate = Color(0, 0, 0, 1)
+material = SubResource("ShaderMaterial_1ofwm")
+offset_top = 196.0
+offset_right = 480.0
+offset_bottom = 332.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/normal_font_size = 60
+theme_override_font_sizes/bold_font_size = 60
+bbcode_enabled = true
+text = "[center]0000[/center]"
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 48.0
+offset_bottom = 48.0
+theme = ExtResource("2_5neab")
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
+icon = ExtResource("2_st422")
+icon_alignment = 1
+expand_icon = true
+
+[node name="pixelation" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_w0nmw")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="drop" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_asfa8")
+autoplay = true
+
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]

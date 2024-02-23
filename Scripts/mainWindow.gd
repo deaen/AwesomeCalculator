@@ -74,11 +74,6 @@ func _on_calculate_pressed():
 	
 	if fieldOneCombined == "09" && fieldTwoCombined == "10" && operatorIndex == 0:
 		global.result = 21
-
-	print(operatorIndex)
-	print(fieldOneCombined)
-	print(fieldTwoCombined)
-	print(global.result)
 	global.windowPOS = get_window().position
 	$loop.stop()
 	$"build up".play()

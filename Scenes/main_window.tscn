@@ -91,9 +91,9 @@ metadata/_edit_lock_ = true
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 material = SubResource("ShaderMaterial_5kivu")
 offset_left = 8.0
-offset_top = 48.0
+offset_top = 40.0
 offset_right = 472.0
-offset_bottom = 184.0
+offset_bottom = 176.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_y = 0
@@ -108,9 +108,9 @@ autowrap_mode = 0
 
 [node name="1stNumField1" type="OptionButton" parent="." node_paths=PackedStringArray("option1", "option2", "option3", "option4", "option5")]
 offset_left = 12.0
-offset_top = 210.0
+offset_top = 202.0
 offset_right = 67.0
-offset_bottom = 241.0
+offset_bottom = 233.0
 theme = ExtResource("4_7m4et")
 item_count = 10
 selected = 0
@@ -144,9 +144,9 @@ option5 = NodePath("../2ndNumField2")
 
 [node name="1stNumField2" type="OptionButton" parent="."]
 offset_left = 90.0
-offset_top = 210.0
+offset_top = 202.0
 offset_right = 145.0
-offset_bottom = 241.0
+offset_bottom = 233.0
 theme = ExtResource("4_7m4et")
 item_count = 10
 selected = 0
@@ -174,9 +174,9 @@ popup/item_9/id = 9
 
 [node name="operator" type="OptionButton" parent="."]
 offset_left = 208.0
-offset_top = 210.0
+offset_top = 202.0
 offset_right = 263.0
-offset_bottom = 241.0
+offset_bottom = 233.0
 theme = ExtResource("4_7m4et")
 item_count = 4
 selected = 0
@@ -192,9 +192,9 @@ popup/item_3/id = 3
 
 [node name="2ndNumField1" type="OptionButton" parent="."]
 offset_left = 324.0
-offset_top = 210.0
+offset_top = 202.0
 offset_right = 379.0
-offset_bottom = 241.0
+offset_bottom = 233.0
 theme = ExtResource("4_7m4et")
 item_count = 10
 selected = 0
@@ -222,9 +222,9 @@ popup/item_9/id = 9
 
 [node name="2ndNumField2" type="OptionButton" parent="."]
 offset_left = 401.0
-offset_top = 210.0
+offset_top = 202.0
 offset_right = 456.0
-offset_bottom = 241.0
+offset_bottom = 233.0
 theme = ExtResource("4_7m4et")
 item_count = 10
 selected = 0
@@ -262,9 +262,9 @@ text = "answer"
 [node name="firstnumber" type="RichTextLabel" parent="."]
 material = SubResource("ShaderMaterial_4bfu3")
 offset_left = 16.0
-offset_top = 228.0
+offset_top = 220.0
 offset_right = 149.0
-offset_bottom = 302.0
+offset_bottom = 294.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
 text = "
@@ -274,9 +274,9 @@ scroll_active = false
 [node name="operatortext" type="RichTextLabel" parent="."]
 material = SubResource("ShaderMaterial_m4uvf")
 offset_left = 188.0
-offset_top = 228.0
+offset_top = 220.0
 offset_right = 298.0
-offset_bottom = 300.0
+offset_bottom = 292.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
 text = "
@@ -286,9 +286,9 @@ scroll_active = false
 [node name="2ndnymber" type="RichTextLabel" parent="."]
 material = SubResource("ShaderMaterial_ervhw")
 offset_left = 327.0
-offset_top = 226.0
+offset_top = 218.0
 offset_right = 454.0
-offset_bottom = 293.0
+offset_bottom = 285.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
 text = "

@@ -1,3 +1,7 @@
+CheckBox
+Control
+Node2D
+CheckButton
 TextureRect
 Button
 RichTextLabel
@@ -8,7 +12,3 @@ ColorRect
 CanvasLayer
 Node
 TextEdit
-AnimationPlayer
-AnimationTree
-AudioStreamPlayer
-MenuBar

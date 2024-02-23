@@ -94,3 +94,6 @@ func _on_button_pressed():
 func _on_window_close_requested():
 	$settingsBTN.disabled = false
 	settingsWindow.hide()
+
+
+

@@ -12,14 +12,12 @@ config_version=5
 
 config/name="awesome calculator"
 config/description="very useful"
-config/version="1.1"
+config/version="1.2"
 run/main_scene="res://Scenes/main_window.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
-boot_splash/bg_color=Color(1, 1, 1, 1)
-boot_splash/show_image=false
+boot_splash/bg_color=Color(0.752941, 0.768627, 0.768627, 1)
 boot_splash/image="res://assets/logo.png"
 boot_splash/fullsize=false
-boot_splash/use_filter=false
 config/icon="res://assets/icon.png"
 config/windows_native_icon="res://assets/icon.ico"
 
@@ -32,7 +30,6 @@ global="*res://Scripts/globalvars.gd"
 window/size/viewport_width=480
 window/size/viewport_height=480
 window/size/resizable=false
-window/size/transparent=true
 window/per_pixel_transparency/allowed=true
 
 [gui]

@@ -22,17 +22,20 @@ RichLabel = NodePath("CanvasLayer/RichTextLabel")
 [node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
 modulate = Color(0, 0, 0, 1)
 material = SubResource("ShaderMaterial_1ofwm")
-offset_top = 196.0
-offset_right = 480.0
-offset_bottom = 332.0
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -50.0
+offset_bottom = 247.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_font_sizes/normal_font_size = 60
 theme_override_font_sizes/bold_font_size = 60
 bbcode_enabled = true
 text = "[center]0000[/center]"
-scroll_active = false
-autowrap_mode = 0
 
 [node name="Button" type="Button" parent="CanvasLayer"]
 offset_left = 8.0

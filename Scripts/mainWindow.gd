@@ -71,6 +71,8 @@ func _on_calculate_pressed():
 		global.result = float(fieldOneCombined) * float(fieldTwoCombined)
 	elif operatorIndex == 3: 
 		global.result = float(fieldOneCombined) / float(fieldTwoCombined)
+	elif operatorIndex == 4: 
+		global.result = float(fieldOneCombined) ** float(fieldTwoCombined)
 	
 	if fieldOneCombined == "09" && fieldTwoCombined == "10" && operatorIndex == 0:
 		global.result = 21

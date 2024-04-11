@@ -1,4 +1,4 @@
 extends Node
 
-var result:float
 var windowPOS:Vector2
+var sawResult:int = 0

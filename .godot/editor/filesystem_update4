@@ -1,6 +1,6 @@
 res://Scenes/main_window.tscn
 res://theme/def theme.tres
-res://shader/main_window.gdshader
-res://shader/textfloat.gdshader
+res://shaders/main_window.gdshader
+res://shaders/textfloat.gdshader
+res://shaders/pixelate.gdshader
 res://theme/quickbtn.tres
-res://shader/pixelate.gdshader

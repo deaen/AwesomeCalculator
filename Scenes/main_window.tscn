@@ -1,18 +1,20 @@
-[gd_scene load_steps=24 format=3 uid="uid://blysrdlx5eonv"]
+[gd_scene load_steps=32 format=3 uid="uid://blysrdlx5eonv"]
 
-[ext_resource type="Script" path="res://Scripts/mainWindow.gd" id="1_o3v1t"]
+[ext_resource type="Script" path="res://Scripts/mainScript.gd" id="1_y0sr0"]
 [ext_resource type="AudioStream" uid="uid://jq7232ogh2id" path="res://assets/audio/loop.mp3" id="2_cabr8"]
 [ext_resource type="AudioStream" uid="uid://ctkww2cb68ij2" path="res://assets/audio/build up.mp3" id="2_pnj31"]
-[ext_resource type="Shader" path="res://shader/main_window.gdshader" id="2_u8km4"]
-[ext_resource type="Shader" path="res://shader/textfloat.gdshader" id="3_wsc84"]
+[ext_resource type="Shader" path="res://shaders/main_window.gdshader" id="2_u8km4"]
+[ext_resource type="Shader" path="res://shaders/textfloat.gdshader" id="3_wsc84"]
 [ext_resource type="Theme" uid="uid://ccm30crfj0bt3" path="res://theme/def theme.tres" id="4_7m4et"]
-[ext_resource type="Script" path="res://Scripts/bg thing.gd" id="5_q3psa"]
-[ext_resource type="Texture2D" uid="uid://q00j6uv1j5d7" path="res://assets/indexfinger.png" id="6_yipcy"]
+[ext_resource type="Texture2D" uid="uid://ccaovxfm1hlty" path="res://assets/icon_color_outline.png" id="4_e8t6l"]
+[ext_resource type="Texture2D" uid="uid://dkunq3hxi8qel" path="res://assets/cupanidle.png" id="5_ug8hw"]
+[ext_resource type="Script" path="res://Scripts/transparent.gd" id="5_xw0eb"]
 [ext_resource type="Texture2D" uid="uid://gfwverdlvrb2" path="res://assets/settingsicon.png" id="8_s3e8v"]
-[ext_resource type="Script" path="res://Scripts/HSlider.gd" id="9_7feru"]
-[ext_resource type="Texture2D" uid="uid://do6kbq5d7amxx" path="res://assets/godotLogo.webp" id="9_86lb5"]
-[ext_resource type="Script" path="res://Scenes/CheckButton.gd" id="10_aes2r"]
-[ext_resource type="Script" path="res://Scripts/credit.gd" id="10_la3bp"]
+[ext_resource type="Texture2D" uid="uid://bl0b1w1sgrmqd" path="res://assets/cantalope.png" id="15_ci6dk"]
+[ext_resource type="Shader" path="res://shaders/pixelate.gdshader" id="16_jsaha"]
+[ext_resource type="Theme" uid="uid://omxrn8usvpae" path="res://theme/quickbtn.tres" id="17_06bn0"]
+[ext_resource type="Texture2D" uid="uid://wpguemih2xei" path="res://assets/arrowBack.png" id="18_1th4f"]
+[ext_resource type="AudioStream" uid="uid://bhr7kxp6y3ma3" path="res://assets/audio/drop.mp3" id="19_gok2i"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5k35g"]
 shader = ExtResource("2_u8km4")
@@ -34,19 +36,42 @@ shader_parameter/height = 5.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4bfu3"]
 shader = ExtResource("3_wsc84")
-shader_parameter/height = 5.0
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_gfjva"]
-shader = ExtResource("3_wsc84")
-shader_parameter/height = 100.0
+shader_parameter/height = 2.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_m4uvf"]
 shader = ExtResource("3_wsc84")
-shader_parameter/height = 5.0
+shader_parameter/height = 2.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ervhw"]
 shader = ExtResource("3_wsc84")
-shader_parameter/height = 5.0
+shader_parameter/height = 2.0
+
+[sub_resource type="Animation" id="Animation_8y0qu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("transitionAnimation/ColorRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("transitionAnimation/ColorRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_h7555"]
 resource_name = "fade"
@@ -54,11 +79,11 @@ length = 1.78
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("transition/ColorRect:self_modulate")
+tracks/0/path = NodePath("transitionAnimation/ColorRect:self_modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.1, 1.6),
+"times": PackedFloat32Array(0.1, 1.78),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
@@ -66,59 +91,152 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("transition/ColorRect:visible")
+tracks/1/path = NodePath("transitionAnimation/ColorRect:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.1),
+"times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
 }
 
+[sub_resource type="Animation" id="Animation_iss2k"]
+resource_name = "faze"
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_i1ccy"]
 _data = {
-"fade": SubResource("Animation_h7555")
+"RESET": SubResource("Animation_8y0qu"),
+"fade": SubResource("Animation_h7555"),
+"faze": SubResource("Animation_iss2k")
 }
 
-[node name="MainWindow" type="Node2D"]
-script = ExtResource("1_o3v1t")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ccg75"]
+resource_local_to_scene = true
 
-[node name="BG" type="TextureRect" parent="."]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x1v5k"]
+shader = ExtResource("16_jsaha")
+shader_parameter/pixel_size = 2.0
+
+[sub_resource type="Animation" id="Animation_2uxv3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_s85oi"]
+resource_name = "idle"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sien5"]
+_data = {
+"RESET": SubResource("Animation_2uxv3"),
+"idle": SubResource("Animation_s85oi")
+}
+
+[node name="Control" type="Control" node_paths=PackedStringArray("transitionTexture", "settingsWindow", "resultsWindow", "operatorButton", "settingsButton", "answerButton", "loopAudio", "buildUpAudio", "dropAudio", "colorRect", "cupanAnim", "resultsRichLabel", "cantalpope")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_y0sr0")
+transitionTexture = NodePath("transitionAnimation")
+settingsWindow = NodePath("settingsWindow")
+resultsWindow = NodePath("results")
+operatorButton = NodePath("operator")
+settingsButton = NodePath("settingsButton")
+answerButton = NodePath("answerButton")
+loopAudio = NodePath("loopAudio")
+buildUpAudio = NodePath("buildupAudio")
+dropAudio = NodePath("dropAudio")
+colorRect = NodePath("transitionAnimation/ColorRect")
+cupanAnim = NodePath("settingsWindow/cupan/cupanAnim")
+resultsRichLabel = NodePath("results/resultsText")
+cantalpope = NodePath("results/cantalpope")
+
+[node name="rainbowBackground" type="TextureRect" parent="."]
 self_modulate = Color(0, 0, 0, 1)
 material = SubResource("ShaderMaterial_5k35g")
-offset_left = -5.0
-offset_top = -1.0
-offset_right = 482.0
-offset_bottom = 490.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = SubResource("GradientTexture2D_aacq4")
-metadata/_edit_lock_ = true
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
+[node name="answerButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 75.205
+offset_top = 512.2
+offset_right = -73.985
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 35
+text = "answer"
+
+[node name="titleText" type="RichTextLabel" parent="."]
 material = SubResource("ShaderMaterial_5kivu")
-offset_left = 8.0
-offset_top = 26.0
-offset_right = 472.0
-offset_bottom = 162.0
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -185.0
+offset_top = 46.0
+offset_right = 171.0
+offset_bottom = 243.0
+grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.152941)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_y = 0
-theme_override_constants/shadow_outline_size = 5
-theme_override_constants/outline_size = 15
-theme_override_font_sizes/normal_font_size = 49
+theme_override_constants/shadow_offset_x = 8
+theme_override_constants/shadow_offset_y = 9
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/normal_font_size = 70
 bbcode_enabled = true
-text = "[center]Awesome 
-Calculator[/center]"
+text = "[rainbow freq=0.3 sat=0.9 val=1][center][wave amp=50.0 freq=5.0 connected=1]Awesome 
+Calculator[/wave][/center][/rainbow]"
 scroll_active = false
 autowrap_mode = 0
 
 [node name="1stNumField1" type="OptionButton" parent="." node_paths=PackedStringArray("option1", "option2", "option3", "option4", "option5")]
-offset_left = 12.0
-offset_top = 182.0
-offset_right = 67.0
-offset_bottom = 217.0
+layout_mode = 0
+offset_left = 15.0
+offset_top = 268.615
+offset_right = 105.0
+offset_bottom = 328.615
+focus_neighbor_top = NodePath("../settingsButton")
+focus_neighbor_right = NodePath("../1stNumField2")
+focus_next = NodePath("../1stNumField2")
 theme = ExtResource("4_7m4et")
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 30
 alignment = 1
 item_count = 10
 selected = 0
@@ -143,7 +261,7 @@ popup/item_8/text = "8"
 popup/item_8/id = 8
 popup/item_9/text = "9"
 popup/item_9/id = 9
-script = ExtResource("5_q3psa")
+script = ExtResource("5_xw0eb")
 option1 = NodePath(".")
 option2 = NodePath("../1stNumField2")
 option3 = NodePath("../operator")
@@ -151,12 +269,18 @@ option4 = NodePath("../2ndNumField1")
 option5 = NodePath("../2ndNumField2")
 
 [node name="1stNumField2" type="OptionButton" parent="."]
-offset_left = 90.0
-offset_top = 182.0
-offset_right = 145.0
-offset_bottom = 217.0
+layout_mode = 0
+offset_left = 115.0
+offset_top = 268.615
+offset_right = 205.0
+offset_bottom = 328.615
+focus_neighbor_left = NodePath("../1stNumField1")
+focus_neighbor_top = NodePath("../settingsButton")
+focus_neighbor_right = NodePath("../operator")
+focus_next = NodePath("../operator")
+focus_previous = NodePath("../1stNumField1")
 theme = ExtResource("4_7m4et")
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 30
 alignment = 1
 item_count = 10
 selected = 0
@@ -183,12 +307,18 @@ popup/item_9/text = "9"
 popup/item_9/id = 9
 
 [node name="operator" type="OptionButton" parent="."]
-offset_left = 208.0
-offset_top = 182.0
-offset_right = 263.0
-offset_bottom = 217.0
+layout_mode = 0
+offset_left = 260.0
+offset_top = 268.615
+offset_right = 349.999
+offset_bottom = 328.615
+focus_neighbor_left = NodePath("../1stNumField2")
+focus_neighbor_top = NodePath("../settingsButton")
+focus_neighbor_right = NodePath("../2ndNumField1")
+focus_next = NodePath("../2ndNumField1")
+focus_previous = NodePath("../1stNumField2")
 theme = ExtResource("4_7m4et")
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 30
 alignment = 1
 item_count = 5
 selected = 0
@@ -205,12 +335,18 @@ popup/item_4/text = "^"
 popup/item_4/id = 4
 
 [node name="2ndNumField1" type="OptionButton" parent="."]
-offset_left = 324.0
-offset_top = 182.0
-offset_right = 379.0
-offset_bottom = 217.0
+layout_mode = 0
+offset_left = 400.0
+offset_top = 268.615
+offset_right = 490.0
+offset_bottom = 328.615
+focus_neighbor_left = NodePath("../operator")
+focus_neighbor_top = NodePath("../settingsButton")
+focus_neighbor_right = NodePath("../2ndNumField2")
+focus_next = NodePath("../2ndNumField2")
+focus_previous = NodePath("../operator")
 theme = ExtResource("4_7m4et")
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 30
 alignment = 1
 item_count = 10
 selected = 0
@@ -237,12 +373,16 @@ popup/item_9/text = "9"
 popup/item_9/id = 9
 
 [node name="2ndNumField2" type="OptionButton" parent="."]
-offset_left = 401.0
-offset_top = 182.0
-offset_right = 456.0
-offset_bottom = 217.0
+layout_mode = 0
+offset_left = 500.0
+offset_top = 268.615
+offset_right = 590.0
+offset_bottom = 328.615
+focus_neighbor_left = NodePath("../2ndNumField1")
+focus_neighbor_top = NodePath("../settingsButton")
+focus_previous = NodePath("../2ndNumField1")
 theme = ExtResource("4_7m4et")
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 30
 alignment = 1
 item_count = 10
 selected = 0
@@ -268,122 +408,175 @@ popup/item_8/id = 8
 popup/item_9/text = "9"
 popup/item_9/id = 9
 
-[node name="Calculate" type="Button" parent="."]
-offset_left = 120.0
-offset_top = 401.0
-offset_right = 344.0
-offset_bottom = 465.0
-theme = ExtResource("4_7m4et")
-theme_override_font_sizes/font_size = 30
-text = "answer"
+[node name="dropdownDescriptions" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="firstnumber" type="RichTextLabel" parent="."]
+[node name="firstDesc" type="RichTextLabel" parent="dropdownDescriptions"]
 material = SubResource("ShaderMaterial_4bfu3")
-offset_left = 16.0
-offset_top = 200.0
-offset_right = 149.0
-offset_bottom = 274.0
+layout_mode = 0
+offset_left = 18.0
+offset_top = 343.0
+offset_right = 204.0
+offset_bottom = 387.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
+theme_override_font_sizes/normal_font_size = 20
 bbcode_enabled = true
-text = "
-      first number"
+text = "[tornado radius=1.0 freq=20.0][img=25]res://assets/indexfinger.png[/img]   first number[/tornado]"
 scroll_active = false
 
-[node name="TextureRect" type="TextureRect" parent="firstnumber"]
-material = SubResource("ShaderMaterial_gfjva")
-use_parent_material = true
-layout_mode = 0
-offset_left = -2.0
-offset_top = 19.0
-offset_right = 510.0
-offset_bottom = 531.0
-scale = Vector2(0.0605484, 0.0605484)
-texture = ExtResource("6_yipcy")
-
-[node name="operatortext" type="RichTextLabel" parent="."]
+[node name="operatorDesc" type="RichTextLabel" parent="dropdownDescriptions"]
 material = SubResource("ShaderMaterial_m4uvf")
-offset_left = 188.0
-offset_top = 200.0
-offset_right = 298.0
-offset_bottom = 272.0
+layout_mode = 0
+offset_left = 238.0
+offset_top = 343.0
+offset_right = 365.0
+offset_bottom = 387.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
-text = "
-      operator"
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[tornado radius=1.0 freq=20.0][img=25]res://assets/indexfinger.png[/img]  operator[/tornado]"
 scroll_active = false
 
-[node name="TextureRect" type="TextureRect" parent="operatortext"]
-material = SubResource("ShaderMaterial_gfjva")
-use_parent_material = true
-layout_mode = 0
-offset_left = -2.0
-offset_top = 19.0
-offset_right = 510.0
-offset_bottom = 531.0
-scale = Vector2(0.0605484, 0.0605484)
-texture = ExtResource("6_yipcy")
-
-[node name="2ndnymber" type="RichTextLabel" parent="."]
+[node name="secondDesc" type="RichTextLabel" parent="dropdownDescriptions"]
 material = SubResource("ShaderMaterial_ervhw")
-offset_left = 326.0
-offset_top = 202.0
-offset_right = 453.0
-offset_bottom = 269.0
+layout_mode = 0
+offset_left = 412.0
+offset_top = 343.0
+offset_right = 574.0
+offset_bottom = 402.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
-text = "
-      2nd number"
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[tornado radius=1.0 freq=20.0][img=25]res://assets/indexfinger.png[/img]   2nd number[/tornado]"
 scroll_active = false
 
-[node name="TextureRect" type="TextureRect" parent="2ndnymber"]
-material = SubResource("ShaderMaterial_gfjva")
-use_parent_material = true
-layout_mode = 0
-offset_left = -2.0
-offset_top = 19.0
-offset_right = 510.0
-offset_bottom = 531.0
-scale = Vector2(0.0605484, 0.0605484)
-texture = ExtResource("6_yipcy")
-
-[node name="build up" type="AudioStreamPlayer" parent="."]
+[node name="buildupAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_pnj31")
 
-[node name="loop" type="AudioStreamPlayer" parent="."]
+[node name="loopAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_cabr8")
 autoplay = true
 
-[node name="settingsBTN" type="Button" parent="."]
-offset_left = 432.0
-offset_top = 8.0
-offset_right = 472.0
-offset_bottom = 48.0
-theme = ExtResource("4_7m4et")
-icon = ExtResource("8_s3e8v")
-icon_alignment = 1
+[node name="dropAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("19_gok2i")
 
-[node name="transition" type="AnimationPlayer" parent="."]
+[node name="transitionAnimation" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_i1ccy")
 }
 
-[node name="ColorRect" type="ColorRect" parent="transition"]
+[node name="ColorRect" type="ColorRect" parent="transitionAnimation"]
 visible = false
-self_modulate = Color(1, 1, 1, 0)
-offset_left = -82.0
-offset_top = -80.0
-offset_right = 539.0
-offset_bottom = 537.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Window" type="Window" parent="."]
+[node name="settingsButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -590.0
+offset_top = 6.585
+offset_right = -540.0
+offset_bottom = 56.585
+grow_horizontal = 0
+focus_neighbor_bottom = NodePath("../1stNumField1")
+focus_previous = NodePath("../1stNumField1")
+theme = ExtResource("4_7m4et")
+icon = ExtResource("8_s3e8v")
+icon_alignment = 1
+
+[node name="results" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="whiteBackground" type="ColorRect" parent="results"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="resultsText" type="RichTextLabel" parent="results"]
+modulate = Color(0, 0, 0, 1)
+material = SubResource("ShaderMaterial_ccg75")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 246.68
+offset_bottom = 246.68
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_neighbor_left = NodePath("../backButton")
+focus_neighbor_top = NodePath("../backButton")
+focus_previous = NodePath("../backButton")
+theme_override_font_sizes/normal_font_size = 60
+theme_override_font_sizes/bold_font_size = 60
+bbcode_enabled = true
+text = "[center]0000[/center]"
+metadata/_edit_use_anchors_ = true
+
+[node name="cantalpope" type="TextureRect" parent="results"]
+visible = false
+layout_mode = 0
+offset_left = 156.3
+offset_top = 185.895
+offset_right = 356.3
+offset_bottom = 347.895
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("15_ci6dk")
+
+[node name="ColorRect" type="ColorRect" parent="results"]
+material = SubResource("ShaderMaterial_x1v5k")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="backButton" type="Button" parent="results"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 58.0
+offset_bottom = 58.0
+focus_neighbor_bottom = NodePath("../resultsText")
+theme = ExtResource("17_06bn0")
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
+icon = ExtResource("18_1th4f")
+icon_alignment = 1
+expand_icon = true
+metadata/_edit_use_anchors_ = true
+
+[node name="settingsWindow" type="Window" parent="."]
+title = "credits.exe"
 initial_position = 1
-size = Vector2i(440, 200)
+size = Vector2i(440, 225)
 visible = false
-transient = true
 unresizable = true
+always_on_top = true
 
-[node name="BG" type="TextureRect" parent="Window"]
+[node name="rainbowBackground" type="TextureRect" parent="settingsWindow"]
 self_modulate = Color(0, 0, 0, 1)
 material = SubResource("ShaderMaterial_5k35g")
 anchors_preset = 15
@@ -399,96 +592,76 @@ size_flags_horizontal = 4
 texture = SubResource("GradientTexture2D_aacq4")
 metadata/_edit_lock_ = true
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="Window"]
-offset_left = 338.55
-offset_top = 100.095
-offset_right = 706.55
-offset_bottom = 252.095
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 5
-theme_override_font_sizes/normal_font_size = 15
-bbcode_enabled = true
-text = "change 
-window size"
-scroll_active = false
-autowrap_mode = 0
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Window"]
-offset_left = 10.515
-offset_top = 28.935
-offset_right = 378.515
-offset_bottom = 180.935
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 5
-theme_override_font_sizes/normal_font_size = 25
-bbcode_enabled = true
-text = "[center]        volume slider[/center]
-
-app by deaen
-made with godot 
-
-
-"
-scroll_active = false
-autowrap_mode = 0
-
-[node name="TextureRect2" type="TextureRect" parent="Window"]
-offset_left = 206.31
-offset_top = 134.0
-offset_right = 1230.31
-offset_bottom = 1158.0
-scale = Vector2(0.04, 0.04)
-texture = ExtResource("9_86lb5")
-
-[node name="CheckButton" type="CheckButton" parent="Window"]
-offset_left = 286.19
-offset_top = 107.115
-offset_right = 324.19
-offset_bottom = 129.115
-scale = Vector2(1.3, 1.3)
-script = ExtResource("10_aes2r")
-
-[node name="Button" type="Button" parent="Window"]
-offset_left = 304.165
-offset_top = 150.55
-offset_right = 478.165
-offset_bottom = 202.55
-scale = Vector2(0.7, 0.7)
-text = "song: 
-DEAF KEV - Invincible
-"
-script = ExtResource("10_la3bp")
-
-[node name="HSlider" type="HSlider" parent="Window"]
+[node name="creditsText" type="RichTextLabel" parent="settingsWindow"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -214.995
-offset_top = -38.0
-offset_right = 212.515
-offset_bottom = -22.0
+offset_left = -202.747
+offset_top = -140.575
+offset_right = 242.298
+offset_bottom = 78.56
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme = ExtResource("4_7m4et")
-max_value = 1.0
-step = 0.001
-value = 1.0
-script = ExtResource("9_7feru")
-bus_name = "Master"
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/normal_font_size = 27
+bbcode_enabled = true
+text = "
+- app by deaen 
+- special thanks to Xinto for 
+helping me publish the app!
+- made with godot 
 
+
+"
+scroll_active = false
+autowrap_mode = 0
+
+[node name="godotLogo" type="TextureRect" parent="settingsWindow"]
+offset_left = 249.96
+offset_top = 128.63
+offset_right = 291.961
+offset_bottom = 170.63
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("4_e8t6l")
+
+[node name="creditsButton" type="Button" parent="settingsWindow"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 17.855
+offset_top = -51.535
+offset_right = 417.855
+offset_bottom = 7.58011
+grow_vertical = 0
+scale = Vector2(0.7, 0.7)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
+theme_override_font_sizes/font_size = 27
+text = "song:  DEAF KEV - Invincible"
+
+[node name="cupan" type="Sprite2D" parent="settingsWindow"]
+texture_filter = 1
+position = Vector2(222.67, 29.605)
+texture = ExtResource("5_ug8hw")
+hframes = 3
+
+[node name="cupanAnim" type="AnimationPlayer" parent="settingsWindow/cupan"]
+libraries = {
+"": SubResource("AnimationLibrary_sien5")
+}
+
+[connection signal="pressed" from="answerButton" to="." method="_on_answer_button_pressed"]
 [connection signal="item_selected" from="1stNumField1" to="." method="_on_st_num_field_1_item_selected"]
 [connection signal="item_selected" from="1stNumField2" to="." method="_on_st_num_field_2_item_selected"]
 [connection signal="item_selected" from="operator" to="." method="_on_operator_item_selected"]
 [connection signal="item_selected" from="2ndNumField1" to="." method="_on_nd_num_field_1_item_selected"]
 [connection signal="item_selected" from="2ndNumField2" to="." method="_on_nd_num_field_2_item_selected"]
-[connection signal="pressed" from="Calculate" to="." method="_on_calculate_pressed"]
-[connection signal="pressed" from="settingsBTN" to="." method="_on_button_pressed"]
-[connection signal="close_requested" from="Window" to="." method="_on_window_close_requested"]
-[connection signal="toggled" from="Window/CheckButton" to="Window/CheckButton" method="_on_toggled"]
-[connection signal="pressed" from="Window/Button" to="Window/Button" method="_on_pressed"]
+[connection signal="pressed" from="settingsButton" to="." method="_on_settings_btn_pressed"]
+[connection signal="pressed" from="results/backButton" to="." method="_on_back_button_pressed"]
+[connection signal="close_requested" from="settingsWindow" to="." method="_on_settings_window_close_requested"]
+[connection signal="pressed" from="settingsWindow/creditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="settingsWindow/creditsButton" to="settingsWindow/creditsButton" method="_on_pressed"]

@@ -1,0 +1,634 @@
+[gd_scene load_steps=31 format=3 uid="uid://blysrdlx5eonv"]
+
+[ext_resource type="Texture2D" uid="uid://dpq6kk7xusadx" path="res://assets/BG.jpeg" id="1_xtvqc"]
+[ext_resource type="Script" path="res://Scripts/mainScript.gd" id="1_y0sr0"]
+[ext_resource type="AudioStream" uid="uid://jq7232ogh2id" path="res://assets/audio/loop.mp3" id="2_cabr8"]
+[ext_resource type="AudioStream" uid="uid://ctkww2cb68ij2" path="res://assets/audio/build up.mp3" id="2_pnj31"]
+[ext_resource type="Shader" path="res://shaders/main_window.gdshader" id="2_u8km4"]
+[ext_resource type="Shader" path="res://shaders/textfloat.gdshader" id="3_wsc84"]
+[ext_resource type="Theme" uid="uid://ccm30crfj0bt3" path="res://theme/def theme.tres" id="4_7m4et"]
+[ext_resource type="Script" path="res://Scripts/bg thing.gd" id="5_q3psa"]
+[ext_resource type="Texture2D" uid="uid://q00j6uv1j5d7" path="res://assets/indexfinger.png" id="6_yipcy"]
+[ext_resource type="Texture2D" uid="uid://gfwverdlvrb2" path="res://assets/settingsicon.png" id="8_s3e8v"]
+[ext_resource type="Texture2D" uid="uid://do6kbq5d7amxx" path="res://assets/godotLogo.webp" id="9_86lb5"]
+[ext_resource type="Script" path="res://Scenes/CheckButton.gd" id="10_aes2r"]
+[ext_resource type="Script" path="res://Scripts/credit.gd" id="10_la3bp"]
+[ext_resource type="Shader" path="res://shaders/pixelate.gdshader" id="16_jsaha"]
+[ext_resource type="Theme" uid="uid://omxrn8usvpae" path="res://theme/quickbtn.tres" id="17_06bn0"]
+[ext_resource type="Texture2D" uid="uid://wpguemih2xei" path="res://assets/arrowBack.png" id="18_1th4f"]
+[ext_resource type="AudioStream" uid="uid://bhr7kxp6y3ma3" path="res://assets/audio/drop.mp3" id="19_gok2i"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5k35g"]
+shader = ExtResource("2_u8km4")
+shader_parameter/strength = 0.665
+shader_parameter/speed = 0.3
+shader_parameter/angle = 122.637
+
+[sub_resource type="Gradient" id="Gradient_0di1y"]
+offsets = PackedFloat32Array(0, 0.93038)
+colors = PackedColorArray(1, 1, 1, 1, 0.51, 0.51, 0.51, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_aacq4"]
+gradient = SubResource("Gradient_0di1y")
+fill_to = Vector2(1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5kivu"]
+shader = ExtResource("3_wsc84")
+shader_parameter/height = 5.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gfjva"]
+shader = ExtResource("3_wsc84")
+shader_parameter/height = 100.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4bfu3"]
+shader = ExtResource("3_wsc84")
+shader_parameter/height = 5.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m4uvf"]
+shader = ExtResource("3_wsc84")
+shader_parameter/height = 5.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ervhw"]
+shader = ExtResource("3_wsc84")
+shader_parameter/height = 5.0
+
+[sub_resource type="Animation" id="Animation_h7555"]
+resource_name = "fade"
+length = 1.78
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../mainWindow/transition/ColorRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 1.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../mainWindow/transition/ColorRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_iss2k"]
+resource_name = "faze"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i1ccy"]
+_data = {
+"fade": SubResource("Animation_h7555"),
+"faze": SubResource("Animation_iss2k")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ccg75"]
+resource_local_to_scene = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7d162"]
+shader = ExtResource("16_jsaha")
+shader_parameter/pixel_size = 2.0
+
+[node name="Control" type="Control" node_paths=PackedStringArray("transitionTexture", "settingsWindow", "mainWindow", "resultsWindow", "operatorButton", "settingsButton", "loopAudio", "buildUpAudio", "dropAudio", "resultsRichLabel")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_y0sr0")
+transitionTexture = NodePath("mainWindow/transition")
+settingsWindow = NodePath("settingsWindow")
+mainWindow = NodePath("mainWindow")
+resultsWindow = NodePath("resultsWindow")
+operatorButton = NodePath("mainWindow/operator")
+settingsButton = NodePath("mainWindow/settingsButton")
+loopAudio = NodePath("mainWindow/loop")
+buildUpAudio = NodePath("mainWindow/build up")
+dropAudio = NodePath("resultsWindow/drop")
+resultsRichLabel = NodePath("resultsWindow/CanvasLayer/resultText")
+
+[node name="background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_xtvqc")
+expand_mode = 2
+
+[node name="settingsWindow" type="Window" parent="."]
+initial_position = 1
+size = Vector2i(440, 200)
+visible = false
+unresizable = true
+always_on_top = true
+
+[node name="BG" type="TextureRect" parent="settingsWindow"]
+self_modulate = Color(0, 0, 0, 1)
+material = SubResource("ShaderMaterial_5k35g")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -25.05
+offset_right = 38.95
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.33, 1.33)
+size_flags_horizontal = 4
+texture = SubResource("GradientTexture2D_aacq4")
+metadata/_edit_lock_ = true
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="settingsWindow"]
+visible = false
+offset_left = 338.55
+offset_top = 100.095
+offset_right = 706.55
+offset_bottom = 252.095
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/normal_font_size = 15
+bbcode_enabled = true
+text = "change 
+window size"
+scroll_active = false
+autowrap_mode = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="settingsWindow"]
+offset_left = 10.515
+offset_top = 2.985
+offset_right = 378.515
+offset_bottom = 154.985
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+text = "
+app by deaen
+special thanks to Xinto!
+made with godot 
+
+
+"
+scroll_active = false
+autowrap_mode = 0
+
+[node name="TextureRect2" type="TextureRect" parent="settingsWindow"]
+offset_left = 206.97
+offset_top = 109.83
+offset_right = 1230.97
+offset_bottom = 1133.83
+scale = Vector2(0.04, 0.04)
+texture = ExtResource("9_86lb5")
+
+[node name="CheckButton" type="CheckButton" parent="settingsWindow"]
+visible = false
+offset_left = 286.19
+offset_top = 107.115
+offset_right = 324.19
+offset_bottom = 129.115
+scale = Vector2(1.3, 1.3)
+script = ExtResource("10_aes2r")
+
+[node name="Button" type="Button" parent="settingsWindow"]
+offset_left = 9.975
+offset_top = 151.115
+offset_right = 409.975
+offset_bottom = 210.23
+scale = Vector2(0.7, 0.7)
+theme_override_font_sizes/font_size = 27
+text = " song:  DEAF KEV - Invincible
+"
+script = ExtResource("10_la3bp")
+
+[node name="mainWindow" type="Window" parent="."]
+initial_position = 2
+size = Vector2i(600, 600)
+unresizable = true
+content_scale_mode = 2
+content_scale_aspect = 4
+
+[node name="BG" type="TextureRect" parent="mainWindow"]
+self_modulate = Color(0, 0, 0, 1)
+material = SubResource("ShaderMaterial_5k35g")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_aacq4")
+metadata/_edit_lock_ = true
+
+[node name="title" type="RichTextLabel" parent="mainWindow"]
+material = SubResource("ShaderMaterial_5kivu")
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -305.638
+offset_top = 40.53
+offset_right = 305.637
+offset_bottom = 643.64
+grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/shadow_outline_size = 5
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/normal_font_size = 70
+bbcode_enabled = true
+text = "[center]Awesome 
+Calculator[/center]"
+scroll_active = false
+autowrap_mode = 0
+
+[node name="1stNumField1" type="OptionButton" parent="mainWindow" node_paths=PackedStringArray("option1", "option2", "option3", "option4", "option5")]
+offset_left = 15.0
+offset_top = 268.615
+offset_right = 105.0
+offset_bottom = 358.615
+focus_neighbor_top = NodePath("../settingsButton")
+focus_neighbor_right = NodePath("../1stNumField2")
+focus_neighbor_bottom = NodePath("../Calculate")
+focus_next = NodePath("../1stNumField2")
+theme = ExtResource("4_7m4et")
+theme_override_font_sizes/font_size = 30
+alignment = 1
+item_count = 10
+selected = 0
+allow_reselect = true
+popup/item_0/text = "0"
+popup/item_0/id = 0
+popup/item_1/text = "1"
+popup/item_1/id = 1
+popup/item_2/text = "2"
+popup/item_2/id = 2
+popup/item_3/text = "3"
+popup/item_3/id = 3
+popup/item_4/text = "4"
+popup/item_4/id = 4
+popup/item_5/text = "5"
+popup/item_5/id = 5
+popup/item_6/text = "6"
+popup/item_6/id = 6
+popup/item_7/text = "7"
+popup/item_7/id = 7
+popup/item_8/text = "8"
+popup/item_8/id = 8
+popup/item_9/text = "9"
+popup/item_9/id = 9
+script = ExtResource("5_q3psa")
+option1 = NodePath(".")
+option2 = NodePath("../1stNumField2")
+option3 = NodePath("../operator")
+option4 = NodePath("../2ndNumField1")
+option5 = NodePath("../2ndNumField2")
+
+[node name="1stNumField2" type="OptionButton" parent="mainWindow"]
+offset_left = 115.0
+offset_top = 268.615
+offset_right = 205.0
+offset_bottom = 358.615
+focus_neighbor_left = NodePath("../1stNumField1")
+focus_neighbor_top = NodePath("../settingsButton")
+focus_neighbor_right = NodePath("../operator")
+focus_neighbor_bottom = NodePath("../Calculate")
+focus_next = NodePath("../operator")
+focus_previous = NodePath("../1stNumField1")
+theme = ExtResource("4_7m4et")
+theme_override_font_sizes/font_size = 30
+alignment = 1
+item_count = 10
+selected = 0
+allow_reselect = true
+popup/item_0/text = "0"
+popup/item_0/id = 0
+popup/item_1/text = "1"
+popup/item_1/id = 1
+popup/item_2/text = "2"
+popup/item_2/id = 2
+popup/item_3/text = "3"
+popup/item_3/id = 3
+popup/item_4/text = "4"
+popup/item_4/id = 4
+popup/item_5/text = "5"
+popup/item_5/id = 5
+popup/item_6/text = "6"
+popup/item_6/id = 6
+popup/item_7/text = "7"
+popup/item_7/id = 7
+popup/item_8/text = "8"
+popup/item_8/id = 8
+popup/item_9/text = "9"
+popup/item_9/id = 9
+
+[node name="operator" type="OptionButton" parent="mainWindow"]
+offset_left = 260.0
+offset_top = 268.615
+offset_right = 349.999
+offset_bottom = 358.615
+focus_neighbor_left = NodePath("../1stNumField2")
+focus_neighbor_top = NodePath("../settingsButton")
+focus_neighbor_right = NodePath("../2ndNumField1")
+focus_neighbor_bottom = NodePath("../Calculate")
+focus_next = NodePath("../2ndNumField1")
+focus_previous = NodePath("../1stNumField2")
+theme = ExtResource("4_7m4et")
+theme_override_font_sizes/font_size = 30
+alignment = 1
+item_count = 5
+selected = 0
+allow_reselect = true
+popup/item_0/text = "+"
+popup/item_0/id = 0
+popup/item_1/text = "-"
+popup/item_1/id = 1
+popup/item_2/text = "×"
+popup/item_2/id = 2
+popup/item_3/text = "/"
+popup/item_3/id = 3
+popup/item_4/text = "^"
+popup/item_4/id = 4
+
+[node name="2ndNumField1" type="OptionButton" parent="mainWindow"]
+offset_left = 400.0
+offset_top = 268.615
+offset_right = 490.0
+offset_bottom = 358.615
+focus_neighbor_left = NodePath("../operator")
+focus_neighbor_top = NodePath("../settingsButton")
+focus_neighbor_right = NodePath("../2ndNumField2")
+focus_neighbor_bottom = NodePath("../Calculate")
+focus_next = NodePath("../2ndNumField2")
+focus_previous = NodePath("../operator")
+theme = ExtResource("4_7m4et")
+theme_override_font_sizes/font_size = 30
+alignment = 1
+item_count = 10
+selected = 0
+allow_reselect = true
+popup/item_0/text = "0"
+popup/item_0/id = 0
+popup/item_1/text = "1"
+popup/item_1/id = 1
+popup/item_2/text = "2"
+popup/item_2/id = 2
+popup/item_3/text = "3"
+popup/item_3/id = 3
+popup/item_4/text = "4"
+popup/item_4/id = 4
+popup/item_5/text = "5"
+popup/item_5/id = 5
+popup/item_6/text = "6"
+popup/item_6/id = 6
+popup/item_7/text = "7"
+popup/item_7/id = 7
+popup/item_8/text = "8"
+popup/item_8/id = 8
+popup/item_9/text = "9"
+popup/item_9/id = 9
+
+[node name="2ndNumField2" type="OptionButton" parent="mainWindow"]
+offset_left = 500.0
+offset_top = 268.615
+offset_right = 590.0
+offset_bottom = 358.615
+focus_neighbor_left = NodePath("../2ndNumField1")
+focus_neighbor_top = NodePath("../settingsButton")
+focus_neighbor_bottom = NodePath("../Calculate")
+focus_next = NodePath("../Calculate")
+focus_previous = NodePath("../2ndNumField1")
+theme = ExtResource("4_7m4et")
+theme_override_font_sizes/font_size = 30
+alignment = 1
+item_count = 10
+selected = 0
+allow_reselect = true
+popup/item_0/text = "0"
+popup/item_0/id = 0
+popup/item_1/text = "1"
+popup/item_1/id = 1
+popup/item_2/text = "2"
+popup/item_2/id = 2
+popup/item_3/text = "3"
+popup/item_3/id = 3
+popup/item_4/text = "4"
+popup/item_4/id = 4
+popup/item_5/text = "5"
+popup/item_5/id = 5
+popup/item_6/text = "6"
+popup/item_6/id = 6
+popup/item_7/text = "7"
+popup/item_7/id = 7
+popup/item_8/text = "8"
+popup/item_8/id = 8
+popup/item_9/text = "9"
+popup/item_9/id = 9
+
+[node name="TextureRect" type="TextureRect" parent="mainWindow"]
+material = SubResource("ShaderMaterial_gfjva")
+use_parent_material = true
+offset_left = 33.025
+offset_top = 370.0
+offset_right = 545.025
+offset_bottom = 882.0
+scale = Vector2(0.0605484, 0.0605484)
+texture = ExtResource("6_yipcy")
+
+[node name="TextureRect2" type="TextureRect" parent="mainWindow"]
+material = SubResource("ShaderMaterial_gfjva")
+use_parent_material = true
+offset_left = 247.955
+offset_top = 370.0
+offset_right = 759.955
+offset_bottom = 882.0
+scale = Vector2(0.0605484, 0.0605484)
+texture = ExtResource("6_yipcy")
+
+[node name="TextureRect3" type="TextureRect" parent="mainWindow"]
+material = SubResource("ShaderMaterial_gfjva")
+use_parent_material = true
+offset_left = 425.845
+offset_top = 370.0
+offset_right = 937.845
+offset_bottom = 882.0
+scale = Vector2(0.0605484, 0.0605484)
+texture = ExtResource("6_yipcy")
+
+[node name="firstnumber" type="RichTextLabel" parent="mainWindow"]
+material = SubResource("ShaderMaterial_4bfu3")
+offset_left = 60.0
+offset_top = 370.0
+offset_right = 1060.0
+offset_bottom = 444.75
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = " first number"
+scroll_active = false
+
+[node name="operatortext" type="RichTextLabel" parent="mainWindow"]
+material = SubResource("ShaderMaterial_m4uvf")
+offset_left = 279.985
+offset_top = 370.0
+offset_right = 422.68
+offset_bottom = 456.61
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/normal_font_size = 20
+text = "operator"
+scroll_active = false
+
+[node name="2ndnymber" type="RichTextLabel" parent="mainWindow"]
+material = SubResource("ShaderMaterial_ervhw")
+offset_left = 457.58
+offset_top = 370.0
+offset_right = 600.275
+offset_bottom = 456.61
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/normal_font_size = 20
+text = "2nd number"
+scroll_active = false
+
+[node name="Calculate" type="Button" parent="mainWindow"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -200.0
+offset_top = -79.415
+offset_right = 200.0
+offset_bottom = -9.61493
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 3
+focus_neighbor_top = NodePath("../1stNumField1")
+focus_previous = NodePath("../1stNumField1")
+theme = ExtResource("4_7m4et")
+theme_override_font_sizes/font_size = 30
+text = "answer"
+
+[node name="build up" type="AudioStreamPlayer" parent="mainWindow"]
+stream = ExtResource("2_pnj31")
+
+[node name="loop" type="AudioStreamPlayer" parent="mainWindow"]
+stream = ExtResource("2_cabr8")
+autoplay = true
+
+[node name="settingsButton" type="Button" parent="mainWindow"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -78.095
+offset_top = 6.585
+offset_right = -8.09497
+offset_bottom = 76.585
+grow_horizontal = 0
+focus_neighbor_bottom = NodePath("../1stNumField1")
+focus_previous = NodePath("../1stNumField1")
+theme = ExtResource("4_7m4et")
+icon = ExtResource("8_s3e8v")
+icon_alignment = 1
+
+[node name="transition" type="AnimationPlayer" parent="mainWindow"]
+libraries = {
+"": SubResource("AnimationLibrary_i1ccy")
+}
+
+[node name="ColorRect" type="ColorRect" parent="mainWindow/transition"]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="resultsWindow" type="Window" parent="."]
+initial_position = 1
+size = Vector2i(600, 600)
+visible = false
+unresizable = true
+
+[node name="background" type="ColorRect" parent="resultsWindow"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="resultsWindow"]
+
+[node name="resultText" type="RichTextLabel" parent="resultsWindow/CanvasLayer"]
+modulate = Color(0, 0, 0, 1)
+material = SubResource("ShaderMaterial_ccg75")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 246.68
+offset_bottom = 246.68
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_neighbor_left = NodePath("../backButton")
+focus_neighbor_top = NodePath("../backButton")
+focus_previous = NodePath("../backButton")
+theme_override_font_sizes/normal_font_size = 60
+theme_override_font_sizes/bold_font_size = 60
+bbcode_enabled = true
+text = "[center]0000[/center]"
+metadata/_edit_use_anchors_ = true
+
+[node name="pixelationShader" type="ColorRect" parent="resultsWindow/CanvasLayer"]
+material = SubResource("ShaderMaterial_7d162")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="backButton" type="Button" parent="resultsWindow/CanvasLayer"]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 58.0
+offset_bottom = 58.0
+focus_neighbor_bottom = NodePath("../resultText")
+theme = ExtResource("17_06bn0")
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
+icon = ExtResource("18_1th4f")
+icon_alignment = 1
+expand_icon = true
+metadata/_edit_use_anchors_ = true
+
+[node name="drop" type="AudioStreamPlayer" parent="resultsWindow"]
+stream = ExtResource("19_gok2i")
+
+[connection signal="close_requested" from="settingsWindow" to="." method="_on_settings_window_close_requested"]
+[connection signal="toggled" from="settingsWindow/CheckButton" to="settingsWindow/CheckButton" method="_on_toggled"]
+[connection signal="pressed" from="settingsWindow/Button" to="settingsWindow/Button" method="_on_pressed"]
+[connection signal="close_requested" from="mainWindow" to="." method="_on_main_window_close_requested"]
+[connection signal="item_selected" from="mainWindow/1stNumField1" to="." method="_on_st_num_field_1_item_selected"]
+[connection signal="item_selected" from="mainWindow/1stNumField2" to="." method="_on_st_num_field_2_item_selected"]
+[connection signal="item_selected" from="mainWindow/operator" to="." method="_on_operator_item_selected"]
+[connection signal="item_selected" from="mainWindow/2ndNumField1" to="." method="_on_nd_num_field_1_item_selected"]
+[connection signal="item_selected" from="mainWindow/2ndNumField2" to="." method="_on_nd_num_field_2_item_selected"]
+[connection signal="pressed" from="mainWindow/Calculate" to="." method="_on_calculate_pressed"]
+[connection signal="pressed" from="mainWindow/settingsButton" to="." method="_on_settings_btn_pressed"]
+[connection signal="close_requested" from="resultsWindow" to="." method="_on_results_window_close_requested"]
+[connection signal="pressed" from="resultsWindow/CanvasLayer/backButton" to="." method="_on_back_button_pressed"]

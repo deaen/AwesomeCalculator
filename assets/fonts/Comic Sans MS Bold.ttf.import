@@ -1,0 +1,33 @@
+[remap]
+
+importer="font_data_dynamic"
+type="FontFile"
+uid="uid://dpn6e3lcg6qjg"
+path="res://.godot/imported/Comic Sans MS Bold.ttf-b44d38f9c7042b70171ae10ded16578d.fontdata"
+
+[deps]
+
+source_file="res://assets/fonts/Comic Sans MS Bold.ttf"
+dest_files=["res://.godot/imported/Comic Sans MS Bold.ttf-b44d38f9c7042b70171ae10ded16578d.fontdata"]
+
+[params]
+
+Rendering=null
+antialiasing=1
+generate_mipmaps=false
+multichannel_signed_distance_field=false
+msdf_pixel_range=8
+msdf_size=48
+allow_system_fallback=true
+force_autohinter=false
+hinting=1
+subpixel_positioning=1
+oversampling=0.0
+Fallbacks=null
+fallbacks=[]
+Compress=null
+compress=true
+preload=[]
+language_support={}
+script_support={}
+opentype_features={}

@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://blysrdlx5eonv"]
+[gd_scene load_steps=33 format=3 uid="uid://blysrdlx5eonv"]
 
 [ext_resource type="Script" path="res://Scripts/mainScript.gd" id="1_y0sr0"]
 [ext_resource type="AudioStream" uid="uid://jq7232ogh2id" path="res://assets/audio/loop.mp3" id="2_cabr8"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dkunq3hxi8qel" path="res://assets/cupanidle.png" id="5_ug8hw"]
 [ext_resource type="Script" path="res://Scripts/transparent.gd" id="5_xw0eb"]
 [ext_resource type="Texture2D" uid="uid://gfwverdlvrb2" path="res://assets/settingsicon.png" id="8_s3e8v"]
+[ext_resource type="Script" path="res://Scripts/settingsWindow.gd" id="14_540og"]
 [ext_resource type="Texture2D" uid="uid://bl0b1w1sgrmqd" path="res://assets/cantalope.png" id="15_ci6dk"]
 [ext_resource type="Shader" path="res://shaders/pixelate.gdshader" id="16_jsaha"]
 [ext_resource type="Theme" uid="uid://omxrn8usvpae" path="res://theme/quickbtn.tres" id="17_06bn0"]
@@ -156,7 +157,7 @@ _data = {
 "idle": SubResource("Animation_s85oi")
 }
 
-[node name="Control" type="Control" node_paths=PackedStringArray("transitionTexture", "settingsWindow", "resultsWindow", "operatorButton", "settingsButton", "answerButton", "loopAudio", "buildUpAudio", "dropAudio", "colorRect", "cupanAnim", "resultsRichLabel", "cantalpope")]
+[node name="Control" type="Control" node_paths=PackedStringArray("transitionTexture", "settingsWindow", "resultsWindow", "operatorButton", "settingsButton", "answerButton", "NumField1", "creditsButton", "BackButton", "loopAudio", "buildUpAudio", "dropAudio", "colorRect", "cupanAnim", "resultsRichLabel", "cantalpope")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -170,6 +171,9 @@ resultsWindow = NodePath("results")
 operatorButton = NodePath("operator")
 settingsButton = NodePath("settingsButton")
 answerButton = NodePath("answerButton")
+NumField1 = NodePath("1stNumField1")
+creditsButton = NodePath("settingsWindow/creditsButton")
+BackButton = NodePath("results/backButton")
 loopAudio = NodePath("loopAudio")
 buildUpAudio = NodePath("buildupAudio")
 dropAudio = NodePath("dropAudio")
@@ -191,15 +195,17 @@ texture = SubResource("GradientTexture2D_aacq4")
 
 [node name="answerButton" type="Button" parent="."]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 75.205
-offset_top = 512.2
-offset_right = -73.985
+offset_left = -242.0
+offset_top = -88.0
+offset_right = 208.0
 offset_bottom = -18.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
 theme_override_font_sizes/font_size = 35
 text = "answer"
 
@@ -214,11 +220,11 @@ offset_top = 46.0
 offset_right = 171.0
 offset_bottom = 243.0
 grow_horizontal = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.152941)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = 8
-theme_override_constants/shadow_offset_y = 9
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.152941)
 theme_override_constants/outline_size = 20
+theme_override_constants/shadow_offset_y = 9
+theme_override_constants/shadow_offset_x = 8
 theme_override_font_sizes/normal_font_size = 70
 bbcode_enabled = true
 text = "[rainbow freq=0.3 sat=0.9 val=1][center][wave amp=50.0 freq=5.0 connected=1]Awesome 
@@ -227,20 +233,27 @@ scroll_active = false
 autowrap_mode = 0
 
 [node name="1stNumField1" type="OptionButton" parent="." node_paths=PackedStringArray("option1", "option2", "option3", "option4", "option5")]
-layout_mode = 0
-offset_left = 15.0
-offset_top = 268.615
-offset_right = 105.0
-offset_bottom = 328.615
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -283.0
+offset_top = -31.0
+offset_right = -193.0
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 2
 focus_neighbor_top = NodePath("../settingsButton")
 focus_neighbor_right = NodePath("../1stNumField2")
 focus_next = NodePath("../1stNumField2")
 theme = ExtResource("4_7m4et")
 theme_override_font_sizes/font_size = 30
 alignment = 1
-item_count = 10
 selected = 0
 allow_reselect = true
+item_count = 10
 popup/item_0/text = "0"
 popup/item_0/id = 0
 popup/item_1/text = "1"
@@ -269,11 +282,18 @@ option4 = NodePath("../2ndNumField1")
 option5 = NodePath("../2ndNumField2")
 
 [node name="1stNumField2" type="OptionButton" parent="."]
-layout_mode = 0
-offset_left = 115.0
-offset_top = 268.615
-offset_right = 205.0
-offset_bottom = 328.615
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -185.0
+offset_top = -31.0
+offset_right = -95.0
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 2
 focus_neighbor_left = NodePath("../1stNumField1")
 focus_neighbor_top = NodePath("../settingsButton")
 focus_neighbor_right = NodePath("../operator")
@@ -282,9 +302,9 @@ focus_previous = NodePath("../1stNumField1")
 theme = ExtResource("4_7m4et")
 theme_override_font_sizes/font_size = 30
 alignment = 1
-item_count = 10
 selected = 0
 allow_reselect = true
+item_count = 10
 popup/item_0/text = "0"
 popup/item_0/id = 0
 popup/item_1/text = "1"
@@ -307,11 +327,18 @@ popup/item_9/text = "9"
 popup/item_9/id = 9
 
 [node name="operator" type="OptionButton" parent="."]
-layout_mode = 0
-offset_left = 260.0
-offset_top = 268.615
-offset_right = 349.999
-offset_bottom = 328.615
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -44.9995
+offset_top = -30.0
+offset_right = 44.9995
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
 focus_neighbor_left = NodePath("../1stNumField2")
 focus_neighbor_top = NodePath("../settingsButton")
 focus_neighbor_right = NodePath("../2ndNumField1")
@@ -320,9 +347,9 @@ focus_previous = NodePath("../1stNumField2")
 theme = ExtResource("4_7m4et")
 theme_override_font_sizes/font_size = 30
 alignment = 1
-item_count = 5
 selected = 0
 allow_reselect = true
+item_count = 5
 popup/item_0/text = "+"
 popup/item_0/id = 0
 popup/item_1/text = "-"
@@ -335,11 +362,18 @@ popup/item_4/text = "^"
 popup/item_4/id = 4
 
 [node name="2ndNumField1" type="OptionButton" parent="."]
-layout_mode = 0
-offset_left = 400.0
-offset_top = 268.615
-offset_right = 490.0
-offset_bottom = 328.615
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 100.0
+offset_top = -30.0
+offset_right = 190.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
 focus_neighbor_left = NodePath("../operator")
 focus_neighbor_top = NodePath("../settingsButton")
 focus_neighbor_right = NodePath("../2ndNumField2")
@@ -348,9 +382,9 @@ focus_previous = NodePath("../operator")
 theme = ExtResource("4_7m4et")
 theme_override_font_sizes/font_size = 30
 alignment = 1
-item_count = 10
 selected = 0
 allow_reselect = true
+item_count = 10
 popup/item_0/text = "0"
 popup/item_0/id = 0
 popup/item_1/text = "1"
@@ -373,20 +407,27 @@ popup/item_9/text = "9"
 popup/item_9/id = 9
 
 [node name="2ndNumField2" type="OptionButton" parent="."]
-layout_mode = 0
-offset_left = 500.0
-offset_top = 268.615
-offset_right = 590.0
-offset_bottom = 328.615
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 198.0
+offset_top = -30.0
+offset_right = 288.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
 focus_neighbor_left = NodePath("../2ndNumField1")
 focus_neighbor_top = NodePath("../settingsButton")
 focus_previous = NodePath("../2ndNumField1")
 theme = ExtResource("4_7m4et")
 theme_override_font_sizes/font_size = 30
 alignment = 1
-item_count = 10
 selected = 0
 allow_reselect = true
+item_count = 10
 popup/item_0/text = "0"
 popup/item_0/id = 0
 popup/item_1/text = "1"
@@ -409,9 +450,18 @@ popup/item_9/text = "9"
 popup/item_9/id = 9
 
 [node name="dropdownDescriptions" type="Control" parent="."]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -295.0
+offset_top = -300.0
+offset_right = -255.0
+offset_bottom = -260.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="firstDesc" type="RichTextLabel" parent="dropdownDescriptions"]
 material = SubResource("ShaderMaterial_4bfu3")
@@ -480,14 +530,10 @@ grow_vertical = 2
 
 [node name="settingsButton" type="Button" parent="."]
 layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -590.0
-offset_top = 6.585
-offset_right = -540.0
-offset_bottom = 56.585
-grow_horizontal = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 55.0
+offset_bottom = 55.0
 focus_neighbor_bottom = NodePath("../1stNumField1")
 focus_previous = NodePath("../1stNumField1")
 theme = ExtResource("4_7m4et")
@@ -515,31 +561,43 @@ grow_vertical = 2
 modulate = Color(0, 0, 0, 1)
 material = SubResource("ShaderMaterial_ccg75")
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 246.68
-offset_bottom = 246.68
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -47.995
+offset_right = 300.0
+offset_bottom = 300.505
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 focus_neighbor_left = NodePath("../backButton")
 focus_neighbor_top = NodePath("../backButton")
+focus_neighbor_right = NodePath("../backButton")
 focus_previous = NodePath("../backButton")
+focus_mode = 2
 theme_override_font_sizes/normal_font_size = 60
 theme_override_font_sizes/bold_font_size = 60
 bbcode_enabled = true
 text = "[center]0000[/center]"
-metadata/_edit_use_anchors_ = true
 
 [node name="cantalpope" type="TextureRect" parent="results"]
 visible = false
-layout_mode = 0
-offset_left = 156.3
-offset_top = 185.895
-offset_right = 356.3
-offset_bottom = 347.895
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -157.0
+offset_top = -109.0
+offset_right = 43.0
+offset_bottom = 53.0
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("15_ci6dk")
 
@@ -549,8 +607,6 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 1.0
-offset_right = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -560,7 +616,10 @@ offset_left = 8.0
 offset_top = 8.0
 offset_right = 58.0
 offset_bottom = 58.0
+focus_neighbor_right = NodePath("../resultsText")
 focus_neighbor_bottom = NodePath("../resultsText")
+focus_next = NodePath("../resultsText")
+focus_previous = NodePath("../resultsText")
 theme = ExtResource("17_06bn0")
 theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
 icon = ExtResource("18_1th4f")
@@ -575,6 +634,7 @@ size = Vector2i(440, 225)
 visible = false
 unresizable = true
 always_on_top = true
+script = ExtResource("14_540og")
 
 [node name="rainbowBackground" type="TextureRect" parent="settingsWindow"]
 self_modulate = Color(0, 0, 0, 1)
@@ -599,20 +659,17 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -202.747
-offset_top = -140.575
-offset_right = 242.298
-offset_bottom = 78.56
+offset_top = -75.29
+offset_right = 245.263
+offset_bottom = 143.845
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
-theme_override_font_sizes/normal_font_size = 27
+theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
-text = "
-- app by deaen 
-- special thanks to Xinto for 
-helping me publish the app!
+text = "- app by deaen 
 - made with godot 
 
 
@@ -621,10 +678,10 @@ scroll_active = false
 autowrap_mode = 0
 
 [node name="godotLogo" type="TextureRect" parent="settingsWindow"]
-offset_left = 249.96
-offset_top = 128.63
-offset_right = 291.961
-offset_bottom = 170.63
+offset_left = 358.195
+offset_top = 112.835
+offset_right = 400.196
+offset_bottom = 154.835
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("4_e8t6l")
 
@@ -645,7 +702,7 @@ text = "song:  DEAF KEV - Invincible"
 
 [node name="cupan" type="Sprite2D" parent="settingsWindow"]
 texture_filter = 1
-position = Vector2(222.67, 29.605)
+position = Vector2(312.1, 68.75)
 texture = ExtResource("5_ug8hw")
 hframes = 3
 

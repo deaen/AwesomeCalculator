@@ -10,6 +10,9 @@ extends Control
 @export var operatorButton:OptionButton
 @export var settingsButton:Button
 @export var answerButton:Button
+@export var NumField1:OptionButton
+@export var creditsButton:Button
+@export var BackButton:Button
 
 @export var loopAudio:AudioStreamPlayer
 @export var buildUpAudio:AudioStreamPlayer
@@ -44,6 +47,9 @@ var fieldTwoCombined:String
 func _ready():
 	result = 0.0
 	operatorIndex = operatorButton.get_selected_id()
+	
+	NumField1.grab_focus()
+	
 	if(globalVars.sawResult == 0):
 		pass
 	else:
@@ -118,11 +124,11 @@ func _on_nd_num_field_2_item_selected(index):
 #button singals
 
 func _on_settings_btn_pressed():
-	settingsButton.disabled = true
 	settingsWindow.show()
 	cupanAnim.play("idle")
+	creditsButton.grab_focus()
+
 func _on_settings_window_close_requested():
-	settingsButton.disabled = false
 	settingsWindow.hide()
 func _on_main_window_close_requested():
 	get_tree().quit() 
@@ -140,6 +146,7 @@ func _show_results():
 		return
 	_IDK()
 	resultsRichLabel.bbcode_text = resultText
+	BackButton.grab_focus()
 	
 func _IDK():
 	if str(result) == "nan"  || result == null || result == INF:

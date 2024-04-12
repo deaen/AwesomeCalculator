@@ -1,7 +1,0 @@
-res://export_presets.cfg
-res://Scenes/main_window.tscn
-res://theme/def theme.tres
-res://shaders/main_window.gdshader
-res://shaders/textfloat.gdshader
-res://shaders/pixelate.gdshader
-res://theme/quickbtn.tres

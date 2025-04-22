@@ -1,18 +1,18 @@
 [gd_scene load_steps=33 format=3 uid="uid://blysrdlx5eonv"]
 
-[ext_resource type="Script" path="res://Scripts/mainScript.gd" id="1_y0sr0"]
+[ext_resource type="Script" uid="uid://duagl762l62nn" path="res://Scripts/mainScript.gd" id="1_y0sr0"]
 [ext_resource type="AudioStream" uid="uid://jq7232ogh2id" path="res://assets/audio/loop.mp3" id="2_cabr8"]
 [ext_resource type="AudioStream" uid="uid://ctkww2cb68ij2" path="res://assets/audio/build up.mp3" id="2_pnj31"]
-[ext_resource type="Shader" path="res://shaders/main_window.gdshader" id="2_u8km4"]
-[ext_resource type="Shader" path="res://shaders/textfloat.gdshader" id="3_wsc84"]
+[ext_resource type="Shader" uid="uid://bjkv8gfx5kt31" path="res://shaders/main_window.gdshader" id="2_u8km4"]
+[ext_resource type="Shader" uid="uid://g6d3p2lgtdba" path="res://shaders/textfloat.gdshader" id="3_wsc84"]
 [ext_resource type="Theme" uid="uid://ccm30crfj0bt3" path="res://theme/def theme.tres" id="4_7m4et"]
 [ext_resource type="Texture2D" uid="uid://ccaovxfm1hlty" path="res://assets/icon_color_outline.png" id="4_e8t6l"]
 [ext_resource type="Texture2D" uid="uid://dkunq3hxi8qel" path="res://assets/cupanidle.png" id="5_ug8hw"]
-[ext_resource type="Script" path="res://Scripts/transparent.gd" id="5_xw0eb"]
+[ext_resource type="Script" uid="uid://bpkx3484rm3oc" path="res://Scripts/transparent.gd" id="5_xw0eb"]
 [ext_resource type="Texture2D" uid="uid://gfwverdlvrb2" path="res://assets/settingsicon.png" id="8_s3e8v"]
-[ext_resource type="Script" path="res://Scripts/settingsWindow.gd" id="14_540og"]
+[ext_resource type="Script" uid="uid://bwtgy2fqlxxi" path="res://Scripts/settingsWindow.gd" id="14_540og"]
 [ext_resource type="Texture2D" uid="uid://bl0b1w1sgrmqd" path="res://assets/cantalope.png" id="15_ci6dk"]
-[ext_resource type="Shader" path="res://shaders/pixelate.gdshader" id="16_jsaha"]
+[ext_resource type="Shader" uid="uid://b8edv8p5wvtlw" path="res://shaders/pixelate.gdshader" id="16_jsaha"]
 [ext_resource type="Theme" uid="uid://omxrn8usvpae" path="res://theme/quickbtn.tres" id="17_06bn0"]
 [ext_resource type="Texture2D" uid="uid://wpguemih2xei" path="res://assets/arrowBack.png" id="18_1th4f"]
 [ext_resource type="AudioStream" uid="uid://bhr7kxp6y3ma3" path="res://assets/audio/drop.mp3" id="19_gok2i"]
@@ -107,9 +107,9 @@ resource_name = "faze"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_i1ccy"]
 _data = {
-"RESET": SubResource("Animation_8y0qu"),
-"fade": SubResource("Animation_h7555"),
-"faze": SubResource("Animation_iss2k")
+&"RESET": SubResource("Animation_8y0qu"),
+&"fade": SubResource("Animation_h7555"),
+&"faze": SubResource("Animation_iss2k")
 }
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ccg75"]
@@ -153,8 +153,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_sien5"]
 _data = {
-"RESET": SubResource("Animation_2uxv3"),
-"idle": SubResource("Animation_s85oi")
+&"RESET": SubResource("Animation_2uxv3"),
+&"idle": SubResource("Animation_s85oi")
 }
 
 [node name="Control" type="Control" node_paths=PackedStringArray("transitionTexture", "settingsWindow", "resultsWindow", "operatorButton", "settingsButton", "answerButton", "NumField1", "creditsButton", "BackButton", "loopAudio", "buildUpAudio", "dropAudio", "colorRect", "cupanAnim", "resultsRichLabel", "cantalpope")]
@@ -220,11 +220,11 @@ offset_top = 46.0
 offset_right = 171.0
 offset_bottom = 243.0
 grow_horizontal = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.152941)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = 8
-theme_override_constants/shadow_offset_y = 9
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.152941)
 theme_override_constants/outline_size = 20
+theme_override_constants/shadow_offset_y = 9
+theme_override_constants/shadow_offset_x = 8
 theme_override_font_sizes/normal_font_size = 70
 bbcode_enabled = true
 text = "[rainbow freq=0.3 sat=0.9 val=1][center][wave amp=50.0 freq=5.0 connected=1]Awesome 
@@ -251,9 +251,9 @@ focus_next = NodePath("../1stNumField2")
 theme = ExtResource("4_7m4et")
 theme_override_font_sizes/font_size = 30
 alignment = 1
-item_count = 10
 selected = 0
 allow_reselect = true
+item_count = 10
 popup/item_0/text = "0"
 popup/item_0/id = 0
 popup/item_1/text = "1"
@@ -302,9 +302,9 @@ focus_previous = NodePath("../1stNumField1")
 theme = ExtResource("4_7m4et")
 theme_override_font_sizes/font_size = 30
 alignment = 1
-item_count = 10
 selected = 0
 allow_reselect = true
+item_count = 10
 popup/item_0/text = "0"
 popup/item_0/id = 0
 popup/item_1/text = "1"
@@ -347,9 +347,9 @@ focus_previous = NodePath("../1stNumField2")
 theme = ExtResource("4_7m4et")
 theme_override_font_sizes/font_size = 30
 alignment = 1
-item_count = 5
 selected = 0
 allow_reselect = true
+item_count = 5
 popup/item_0/text = "+"
 popup/item_0/id = 0
 popup/item_1/text = "-"
@@ -382,9 +382,9 @@ focus_previous = NodePath("../operator")
 theme = ExtResource("4_7m4et")
 theme_override_font_sizes/font_size = 30
 alignment = 1
-item_count = 10
 selected = 0
 allow_reselect = true
+item_count = 10
 popup/item_0/text = "0"
 popup/item_0/id = 0
 popup/item_1/text = "1"
@@ -425,9 +425,9 @@ focus_previous = NodePath("../2ndNumField1")
 theme = ExtResource("4_7m4et")
 theme_override_font_sizes/font_size = 30
 alignment = 1
-item_count = 10
 selected = 0
 allow_reselect = true
+item_count = 10
 popup/item_0/text = "0"
 popup/item_0/id = 0
 popup/item_1/text = "1"
@@ -517,7 +517,7 @@ stream = ExtResource("19_gok2i")
 
 [node name="transitionAnimation" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_i1ccy")
+&"": SubResource("AnimationLibrary_i1ccy")
 }
 
 [node name="ColorRect" type="ColorRect" parent="transitionAnimation"]
@@ -664,18 +664,33 @@ offset_right = 245.263
 offset_bottom = 143.845
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
 theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
-text = "- app by deaen 
+text = "- app by
 - made with godot 
 
 
 "
 scroll_active = false
 autowrap_mode = 0
+
+[node name="deaenButton" type="Button" parent="settingsWindow"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 173.0
+offset_top = -189.0
+offset_right = 340.0
+offset_bottom = -103.0
+grow_vertical = 0
+scale = Vector2(0.7, 0.7)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
+theme_override_font_sizes/font_size = 57
+text = "deaen"
 
 [node name="godotLogo" type="TextureRect" parent="settingsWindow"]
 offset_left = 358.195
@@ -708,7 +723,7 @@ hframes = 3
 
 [node name="cupanAnim" type="AnimationPlayer" parent="settingsWindow/cupan"]
 libraries = {
-"": SubResource("AnimationLibrary_sien5")
+&"": SubResource("AnimationLibrary_sien5")
 }
 
 [connection signal="pressed" from="answerButton" to="." method="_on_answer_button_pressed"]
@@ -720,5 +735,5 @@ libraries = {
 [connection signal="pressed" from="settingsButton" to="." method="_on_settings_btn_pressed"]
 [connection signal="pressed" from="results/backButton" to="." method="_on_back_button_pressed"]
 [connection signal="close_requested" from="settingsWindow" to="." method="_on_settings_window_close_requested"]
+[connection signal="pressed" from="settingsWindow/deaenButton" to="." method="_on_deaen_button_pressed"]
 [connection signal="pressed" from="settingsWindow/creditsButton" to="." method="_on_credits_button_pressed"]
-[connection signal="pressed" from="settingsWindow/creditsButton" to="settingsWindow/creditsButton" method="_on_pressed"]

@@ -59,16 +59,17 @@ func _ready():
 func _on_answer_button_pressed():
 	answerButton.disabled = true
 	_combine_nums()
-	if operatorIndex == 0: 
-		result = float(fieldOneCombined) + float(fieldTwoCombined)
-	elif operatorIndex == 1: 
-		result = float(fieldOneCombined) - float(fieldTwoCombined)
-	elif operatorIndex == 2: 
-		result = float(fieldOneCombined) * float(fieldTwoCombined)
-	elif operatorIndex == 3: 
-		result = float(fieldOneCombined) / float(fieldTwoCombined)
-	elif operatorIndex == 4: 
-		result = float(fieldOneCombined) ** float(fieldTwoCombined)
+	match operatorIndex:
+		0:
+			result = float(fieldOneCombined) + float(fieldTwoCombined)
+		1:
+			result = float(fieldOneCombined) - float(fieldTwoCombined)
+		2:
+			result = float(fieldOneCombined) * float(fieldTwoCombined)
+		3:
+			result = float(fieldOneCombined) / float(fieldTwoCombined)
+		4:
+			result = float(fieldOneCombined) ** float(fieldTwoCombined)
 	if fieldOneCombined == "09" && fieldTwoCombined == "10" && operatorIndex == 0:
 		result = 21
 	loopAudio.stop()
@@ -134,6 +135,8 @@ func _on_main_window_close_requested():
 	get_tree().quit() 
 func _on_credits_button_pressed():
 	OS.shell_open("https://youtu.be/J2X5mJ3HDYE")
+func _on_deaen_button_pressed():
+	OS.shell_open("https://x.com/ddeaen")
 
 # results code
 func _show_results():
@@ -151,8 +154,12 @@ func _show_results():
 func _IDK():
 	if str(result) == "nan"  || result == null || result == INF:
 		resultText = ("[center]IDK[/center]")
+		return
+	if step_decimals(result) == 0:
+		resultText = ("[center]"+str(int(result))+"[/center]")
 	else:
 		resultText = ("[center]"+str(result)+"[/center]")
+
 func _on_back_button_pressed():
 	globalVars.windowPOS = mainWindow.position
 	get_tree().reload_current_scene()

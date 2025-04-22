@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=2.0
+Type=Application
+
+Name=Awesome Calculator
+Comment=AMAZING calculator program EXTREMELY useful and definitely VERY practical
+Categories=Utility;Calculator;
+
+Icon=io.github.deaen.awesomecalculator
+Exec=godot-runner
+Terminal=false

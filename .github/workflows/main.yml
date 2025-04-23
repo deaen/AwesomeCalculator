@@ -26,7 +26,7 @@ jobs:
           mkdir -v -p build/pck
           EXPORT_DIR="$(readlink -f build)"
           cd $PROJECT_PATH
-          godot --headless --verbose --export-pack "Linux" "$EXPORT_DIR/linux/$EXPORT_NAME.pck"
+          godot --headless --verbose --import --export-pack "Linux" "$EXPORT_DIR/linux/$EXPORT_NAME.pck"
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:

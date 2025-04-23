@@ -11,7 +11,7 @@ jobs:
     name: PCK Export
     runs-on: ubuntu-22.04  # Use 22.04 with godot 4
     container:
-        image: abarichello/godot-ci@4.4.1-stable
+        image: barichello/godot-ci:4.4.1
     steps:
       - name: Checkout
         uses: actions/checkout@v4

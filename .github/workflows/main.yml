@@ -2,7 +2,7 @@ name: "PCK export"
 on: push
 
 env:
-  GODOT_VERSION: 4.4.1-stable
+  GODOT_VERSION: 4.4.1
   EXPORT_NAME: awesomecalculator
   PROJECT_PATH: .
 

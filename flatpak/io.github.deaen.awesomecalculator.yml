@@ -20,7 +20,7 @@ modules:
     sources:
       - type: git
         url: https://github.com/deaen/AwesomeCalculator.git
-        commit: a1a52a0faf6027729b723c0c887b3952e9c45f99
+        commit: c42373093f24c2419e208a180674949e9c58267e
 
       - type: file
         url: https://github.com/deaen/AwesomeCalculator/releases/download/v2.2/awesomecalculator.pck

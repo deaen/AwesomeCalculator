@@ -28,8 +28,19 @@ jobs:
           cd $PROJECT_PATH
           godot --headless --verbose --import --quit-after 10
           godot --headless --verbose --export-pack "Linux" "$EXPORT_DIR/pck/$EXPORT_NAME.pck"
+      - name: Generate sha256
+        run: |
+          mkdir -v -p checksum/sha256
+          EXPORT_DIR="$(readlink -f build)"
+          CHECKSUM_DIR="$(readlink -f checksum)"
+          sha256sum "$EXPORT_DIR/pck/$EXPORT_NAME.pck" > "$EXPORT_DIR/sha256/$EXPORT_NAME.sha256"
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
           name: pck
           path: build/pck
+      - name: Upload Checksum
+        uses: actions/upload-artifact@v4
+        with:
+          name: sha256
+          path: checksum/sha256

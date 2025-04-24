@@ -2,11 +2,26 @@
 <component type="desktop-application">
   <id>io.github.deaen.awesomecalculator</id>
   
-  <name>Awesome Calculator</name>
-  <summary>AMAZING calculator program EXTREMELY useful and definitely VERY practical</summary>
-  
   <metadata_license>MIT</metadata_license>
   <project_license>LGPL-2.1-only</project_license>
+  
+  <name>awesome calculator</name>
+  <summary>AWESOME calculator program</summary>
+  
+  <developer id="io.github.deaen">
+  <name translatable="no">deaen</name>
+  </developer>
+  
+	<description>
+	<p>The <em>BEST!</em> calculator you will ever use! It&apos;s so <em>GOOD!</em> And <em>USEFUL!</em> And <em>EASY!</em> I love <em>CALCULATING!</em></p>
+	<ul>
+	<li>Calculate amazing calculations!</li>
+	<li>Jam to awesome dubstep music!</li>
+	<li>Find easter eggs!</li>
+	<li>Supports addition, subtraction, multiplication, division and exponentiation!</li>
+  </ul>
+	<p>Download now and calculate.... <em>LIKE A BOSS!!!!!</em></p>
+  </description>
   
   <supports>
 	<control>pointing</control>
@@ -15,19 +30,7 @@
 	<control>gamepad</control>
 	<control>tablet</control>
   </supports>
-  
-  <description>
-	<p>
-	  The <em>BEST!</em> calculator you will ever use! It&apos;s so <em>GOOD!</em> And <em>USEFUL!</em> And <em>EASY!</em> I love <em>CALCULATING!</em>
-	</p>
-	<p>
-	  - Calculate amazing calculations! - Jam to awesome dubstep music! - Find easter eggs! - Supports addition, subtraction, multiplication, division and exponentiation!
-	</p>
-	<p>
-	  Download now and calculate.... <em>LIKE A BOSS!!!!!</em>
-	</p>
-  </description>
-  
+	
   <launchable type="desktop-id">io.github.deaen.awesomecalculator.desktop</launchable>
   <screenshots>
 	<screenshot type="default">

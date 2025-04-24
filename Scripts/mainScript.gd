@@ -143,7 +143,7 @@ func _show_results():
 	mainWindow.position = globalVars.windowPOS
 	colorRect.hide()
 	globalVars.sawResult = 1
-	var probability : int = 100 # 1/100 chance
+	var probability : int = 25 # 1/25 chance
 	if (randi() % probability) == (probability - 1): 
 		cantalpope.show()
 		return

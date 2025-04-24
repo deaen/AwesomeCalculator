@@ -33,7 +33,7 @@ jobs:
           mkdir -v -p checksum/sha256
           EXPORT_DIR="$(readlink -f build)"
           CHECKSUM_DIR="$(readlink -f checksum)"
-          sha256sum "$EXPORT_DIR/pck/$EXPORT_NAME.pck" > "$EXPORT_DIR/sha256/$EXPORT_NAME.sha256"
+          sha256sum "$EXPORT_DIR/pck/$EXPORT_NAME.pck" > "$CHECKSUM_DIR/sha256/$EXPORT_NAME.sha256"
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:

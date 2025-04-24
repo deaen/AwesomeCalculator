@@ -8,7 +8,7 @@ command: godot-runner
 
 finish-args:
   - --share=ipc
-  - --socket=x11
+  - --socket=x11 # <- Godot's wayland still doesn't support certain app functions
   - --socket=pulseaudio
   - --device=all
 

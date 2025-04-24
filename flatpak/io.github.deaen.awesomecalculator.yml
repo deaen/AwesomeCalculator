@@ -1,4 +1,4 @@
-app-id: io.github.deaen.awesomecalculator
+id: io.github.deaen.awesomecalculator
 runtime: org.freedesktop.Platform
 runtime-version: '24.08'
 sdk: org.freedesktop.Sdk
@@ -6,31 +6,21 @@ base: org.godotengine.godot.BaseApp
 base-version: '4.4.1'
 command: godot-runner
 
-# finish-args:
-#  - --share=ipc
-#  - --socket=x11 # <-- Godot needs X11
-#  - --socket=pulseaudio
-#  - --device=dri
-
 modules:
   - name: awesomecalculator
-	buildsystem: simple
-	build-commands:
-	  - install awesomecalculator.pck /app/bin/godot-runner.pck
-	  - install -D io.github.deaen.awesomecalculator.desktop /app/share/applications/io.github.deaen.awesomecalculator.desktop
-	  - install -D io.github.deaen.awesomecalculator.metainfo.xml /app/share/metainfo/io.github.deaen.awesomecalculator.metainfo.xml
-	  - install -D icon_store.png /app/share/icons/hicolor/512x512/apps/org.simondalvai.pocket-broomball.png
-	sources:
-	  - type: archive
-		strip-components: 0
-		url: https://github.com/deaen/AwesomeCalculator/releases/download/v2.1/awesomecalculator.pck
-		sha256: 2de00feea575e40582779f3b74b553908101b514da23b78f984e5c4e85522dc6
-	  - type: file
-		url: https://raw.githubusercontent.com/dulvui/pocket-broomball/6ab1e8867424ba9bb96c38f497d679a07122fef5/flatpak/org.simondalvai.pocket-broomball.desktop
-		sha256: b507dfcadbae631ea3cc19f51d436b3de66569aea987b33b31f07c80abf3b27f
-	  - type: file
-		url: https://raw.githubusercontent.com/dulvui/pocket-broomball/fc8c0458c22628e991847564d56b83d048a7ba17/flatpak/org.simondalvai.pocket-broomball.appdata.xml
-		sha256: 01e2313420e1f653f9807ee18214c7a212d926d78ce8a7bfaaf716af528949d4
-	  - type: file
-		url: https://raw.githubusercontent.com/dulvui/pocket-broomball/668675ca850268a04762681a6f1b4e8ec6b1a4cf/flatpak/icon-256.png
-		sha256: 3a4b65463a87de69ea51e970055f6acc2f9e53f9a9c0090cf986556d079b2f0b
+    buildsystem: simple
+
+    sources:
+      - type: git
+        url: https://github.com/deaen/AwesomeCalculator.git
+        commit: f039b362270179a0007b116bbf45eee3bd750945
+
+      - type: file
+        url: https://github.com/deaen/AwesomeCalculator/releases/download/v2.2/awesomecalculator.pck
+        sha256: 8fdfe9712f7c89682b833d26751540560e6bf80a64687257d73faa8139f50b4a
+
+    build-commands:
+      - install -Dm644 awesomecalculator.pck ${FLATPAK_DEST}/bin/godot-runner.pck
+      - install -Dm644 flatpak/${FLATPAK_ID}.desktop ${FLATPAK_DEST}/share/applications/${FLATPAK_ID}.desktop
+      - install -Dm644 flatpak/${FLATPAK_ID}.metainfo.xml ${FLATPAK_DEST}/share/metainfo/${FLATPAK_ID}.metainfo.xml
+      - install -Dm644 assets/icon_store.png ${FLATPAK_DEST}/share/icons/hicolor/256x256/apps/${FLATPAK_ID}.png

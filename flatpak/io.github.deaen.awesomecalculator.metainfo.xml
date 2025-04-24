@@ -1,52 +1,88 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component type="desktop-application">
-  <id>io.github.deaen.awesomecalculator</id>
-  
-  <metadata_license>MIT</metadata_license>
-  <project_license>LGPL-2.1-only</project_license>
-  
-  <name>awesome calculator</name>
-  <summary>AWESOME calculator program</summary>
-  
-  <developer id="io.github.deaen">
-  <name translatable="no">deaen</name>
-  </developer>
-  
-	<description>
-	<p>The <em>BEST!</em> calculator you will ever use! It&apos;s so <em>GOOD!</em> And <em>USEFUL!</em> And <em>EASY!</em> I love <em>CALCULATING!</em></p>
-	<ul>
-	<li>Calculate amazing calculations!</li>
-	<li>Jam to awesome dubstep music!</li>
-	<li>Find easter eggs!</li>
-	<li>Supports addition, subtraction, multiplication, division and exponentiation!</li>
-  </ul>
-	<p>Download now and calculate.... <em>LIKE A BOSS!!!!!</em></p>
-  </description>
-  
-  <supports>
-	<control>pointing</control>
-	<control>keyboard</control>
-	<control>touch</control>
-	<control>gamepad</control>
-	<control>tablet</control>
-  </supports>
-	
-  <launchable type="desktop-id">io.github.deaen.awesomecalculator.desktop</launchable>
-  <screenshots>
-	<screenshot type="default">
-	  <image>https://raw.githubusercontent.com/deaen/AwesomeCalculator/d1917b357cd11720e6c7f48d04f7ececc32a7d6e/linux/screenshots/1.png</image>
-	</screenshot>
-	<screenshot>
-	  <image>https://raw.githubusercontent.com/deaen/AwesomeCalculator/d1917b357cd11720e6c7f48d04f7ececc32a7d6e/linux/screenshots/2.png</image>
-	</screenshot>
-	<screenshot>
-	  <image>https://raw.githubusercontent.com/deaen/AwesomeCalculator/d1917b357cd11720e6c7f48d04f7ececc32a7d6e/linux/screenshots/3.png</image>
-	</screenshot>
-	<screenshot>
-	  <image>https://raw.githubusercontent.com/deaen/AwesomeCalculator/refs/heads/main/linux/screenshots/4.png</image>
-	</screenshot>
-	<screenshot>
-	  <image>https://raw.githubusercontent.com/deaen/AwesomeCalculator/refs/heads/main/linux/screenshots/5.png</image>
-	</screenshot>
-  </screenshots>
+    <id>io.github.deaen.awesomecalculator</id>
+
+    <metadata_license>MIT</metadata_license>
+    <project_license>LGPL-2.1-only</project_license>
+
+    <name>awesome calculator</name>
+    <summary>AWESOME calculator program</summary>
+
+    <developer id="io.github.deaen">
+        <name translatable="no">deaen</name>
+    </developer>
+
+    <description>
+        <p>The <em>BEST!</em> calculator you will ever use! It&apos;s so <em>GOOD!</em> And <em>
+            USEFUL!</em> And <em>EASY!</em> I love <em>CALCULATING!</em></p>
+        <ul>
+            <li>Calculate amazing calculations!</li>
+            <li>Jam to awesome dubstep music!</li>
+            <li>Find easter eggs!</li>
+            <li>Supports addition, subtraction, multiplication, division and exponentiation!</li>
+        </ul>
+        <p>Download now and calculate.... <em>LIKE A BOSS!!!!!</em></p>
+    </description>
+
+    <launchable type="desktop-id">io.github.deaen.awesomecalculator.desktop</launchable>
+
+    <branding>
+        <color type="primary" scheme_preference="light">#A17FFFFF</color>
+        <color type="primary" scheme_preference="dark">#876BD6FF</color>
+    </branding>
+
+    <content_rating type="oars-1.1" />
+
+    <url type="bugtracker">https://github.com/deaen/AwesomeCalculator/issues</url>
+    <url type="homepage">https://deaen.itch.io/awesomecalculator</url>
+    <url type="contact">https://deaen.itch.io</url>
+    <url type="vcs-browser">https://github.com/deaen/AwesomeCalculator</url>
+
+    <screenshots>
+        <screenshot type="default">
+            <image>
+                https://raw.githubusercontent.com/deaen/AwesomeCalculator/refs/heads/main/flatpak/screenshots/1.png</image>
+            <caption>Main menu</caption>
+        </screenshot>
+        <screenshot>
+            <image>
+                https://raw.githubusercontent.com/deaen/AwesomeCalculator/refs/heads/main/flatpak/screenshots/2.png</image>
+            <caption>Result screen</caption>
+        </screenshot>
+        <screenshot>
+            <image>
+                https://raw.githubusercontent.com/deaen/AwesomeCalculator/refs/heads/main/flatpak/screenshots/3.png</image>
+            <caption>credits menu</caption>
+        </screenshot>
+        <screenshot>
+            <image>
+                https://raw.githubusercontent.com/deaen/AwesomeCalculator/refs/heads/main/flatpak/screenshots/4.png</image>
+            <caption>Result screen?</caption>
+        </screenshot>
+        <screenshot>
+            <image>
+                https://raw.githubusercontent.com/deaen/AwesomeCalculator/refs/heads/main/flatpak/screenshots/5.png</image>
+            <caption>cantaloupe</caption>
+        </screenshot>
+    </screenshots>
+
+    <releases>
+        <release version="2.2" date="2025-04-24">
+            <url type="details">https://example.org/changelog.html#version_1.0.1</url>
+            <description>
+                <p>Initial Flathub release!</p>
+            </description>
+        </release>
+    </releases>
+
+    <recommends>
+        <control>pointing</control>
+        <control>keyboard</control>
+        <control>touch</control>
+        <control>gamepad</control>
+        <control>tablet</control>
+    </recommends>
+    <requires>
+        <display_length compare="ge">360</display_length>
+    </requires>
 </component>
